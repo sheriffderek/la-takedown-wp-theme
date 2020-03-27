@@ -18,7 +18,7 @@
   </h3>
 
   <h4 class='label'>
-    <?php if ($labelUrl) { ?>
+    <?php if ($labelUrlzzz) { ?> <?php // we don't really want them to leave.... ?>
       <a href='<?=$labelUrl?>' target='<?=$labelName?>'>
         <?=$labelName?>
       </a>
@@ -27,12 +27,20 @@
     <?php } ?>
   </h4>
 
-    <?php if ($micrositeUrl) { ?>
-      <p>
-        <a href='<?=$micrositeUrl?>' target='<?=$title?>'>
-          Visit micro-site
-        </a>
-      </p>
-    <?php } ?>
+  <?php include('purchase-links-loop.php'); ?>
+
+  <?php if ($micrositeUrlzzz) { ?>
+    <p>
+      <a href='<?=$micrositeUrl?>' target='<?=$title?>'>
+        Visit micro-site
+      </a>
+    </p>
+  <?php } ?>
+
+  <p>
+    <a href='<?=$releaseLink?>' target='<?=$releaseLink?>'>
+      Full details
+    </a>
+  </p>
 
 </release-card>

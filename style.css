@@ -211,6 +211,14 @@ article li a {
   text-decoration: underline;
   color: #00f;
 }
+.purchase-link-list {
+  display: flex;
+  flex-direction: row;
+  transform: translateX(-10px);
+}
+.purchase-link-list a {
+  padding: 10px 0 10px 10px;
+}
 release-card {
   display: block;
   font-family: 'helvetica';
@@ -254,6 +262,14 @@ release-card p {
   margin-bottom: 60px;
   margin-right: 30px;
 }
+.page-section.events .past-heading {
+  font-family: 'helvetica';
+  font-size: 20px;
+  margin: 20px 0;
+}
+.page-section.events .event + .event {
+  margin-top: 20px;
+}
 .main-nav {
   font-family: 'helvetica';
   font-size: 12px;
@@ -295,6 +311,7 @@ release-card p {
   font-size: 40px;
 }
 .site-footer inner-column {
+  padding-top: 60px;
   padding-bottom: 60px;
 }
 .site-footer .legal {

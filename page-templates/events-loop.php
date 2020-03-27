@@ -1,8 +1,5 @@
 
-
-<section class='events'>
-
-  <?php
+<?php
 
   // get today's date
   $today = date('Ymd');
@@ -32,18 +29,14 @@
           $the_query->the_post();
           ?>
 
+            <?php include('get-event-data.php'); ?>
+
             <li class='event'>
-              <?php
-                $date = get_field('event_date');
-                $title = get_field('event_title');
-                $venue = get_field('venue_name');
-                $date = get_field('event_date');
-                $link = get_permalink();
-              ?>
+
               <?php if ($useMiniEventCard) { ?>
-                <?php include('card-event-mini.php'); ?>
+                <?php include('components/card-event-mini.php'); ?>
               <?php } else { ?>
-                <?php include('card-event.php'); ?>
+                <?php include('components/card-event.php'); ?>
               <?php } ?>
             </li>
 
@@ -76,6 +69,8 @@
 
         <hr class='events-break'>
 
+        <h2 class='past-heading'>Past events:</h2>
+
     <?php 
 
     // get today's date
@@ -106,20 +101,16 @@
             $the_query->the_post();
             ?>
 
-              <li class='event'>
-                <?php
-                  $date = get_field('event_date');
-                  $title = get_field('event_title');
-                  $date = get_field('event_date');
-                  $date = get_field('event_date');
-                  $useMiniEventCard = true;
-                ?>
-                <?php if ($useMiniEventCard) { ?>
-                  <?php include('card-event-mini.php'); ?>
-                <?php } else { ?>
-                  <?php include('card-event.php'); ?>
-                <?php } ?>
-              </li>
+            <?php include('get-event-data.php'); ?>
+
+            <li class='event'>
+
+              <?php if ($useMiniEventCard) { ?>
+                <?php include('components/card-event-mini.php'); ?>
+              <?php } else { ?>
+                <?php include('components/card-event.php'); ?>
+              <?php } ?>
+            </li>
 
             <?php
         }
@@ -134,4 +125,4 @@
 
 ?>
 
-</section>
+

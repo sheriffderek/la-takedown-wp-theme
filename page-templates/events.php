@@ -1,10 +1,10 @@
 
-<section class='page-section'>
+<section class='page-section events'>
 <inner-column>
 
   <h1 class='page-title'><?php echo get_the_title(); ?></h1>
 
-  <?php require('partials/loops/events-loop.php'); ?>
+  <?php require('events-loop.php'); ?>
 
 </inner-column>
 </section>

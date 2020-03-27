@@ -46,15 +46,18 @@ function filter_ptags_on_images($content) {
 add_filter('the_content', 'filter_ptags_on_images');
 
 
-// First, create a function that includes the path to your favicon
-function add_favicon() {
-    $favicon_url = get_stylesheet_directory_uri() . '/images/icons/admin-favicon.ico?v=2';
-  echo '<link rel="shortcut icon" href="' . $favicon_url . '" />'; // $why??? is this just for the ADMIN person - ? so you can quickly see what is admin and what is front-end in the tabs?
+
+function add_admin_favicon() {
+    $favicon_url = get_stylesheet_directory_uri() . '/admin-favicon.ico?v=23';
+  echo '<link rel="shortcut icon" href="' . $favicon_url . '" />';
+  // $why??? is this just for the ADMIN person - ? 
+  // so you can quickly see what is admin and what is front-end in the tabs?
+  // confirmed. This is helpful for various admin reasons
 }
 
 // Now, just make sure that function runs when you're on the login page and admin pages
-add_action('login_head', 'add_favicon');
-add_action('admin_head', 'add_favicon');
+add_action('login_head', 'add_admin_favicon');
+add_action('admin_head', 'add_admin_favicon');
 
 
 // no empty lines after this! ?>

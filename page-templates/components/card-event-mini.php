@@ -1,5 +1,6 @@
 
 <event-card-mini>
+  MINI
   <ul class='detail-list'>
     <li class='detail date'><h3><?=$date?></h3></li>
     <li class='detail title'><?=$title?></li>

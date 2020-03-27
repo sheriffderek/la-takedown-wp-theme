@@ -4,7 +4,7 @@
 
   <h1 class='page-title'><?php echo get_the_title(); ?></h1>
 
-  <?php require('partials/loops/releases-loop.php'); ?>
+  <?php require('releases-loop.php'); ?>
 
 </inner-column>
 </section>
