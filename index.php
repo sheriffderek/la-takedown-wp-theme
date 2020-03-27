@@ -1,18 +1,17 @@
 <?php
-// Silence is golden?
-?>
+/**
+ * Front to the WordPress application. This file doesn't do anything, but loads
+ * wp-blog-header.php which does and tells WordPress to load the theme.
+ *
+ * @package WordPress
+ */
 
+/**
+ * Tells WordPress to load the WordPress theme and output it.
+ *
+ * @var bool
+ */
+define( 'WP_USE_THEMES', true );
 
-<?php get_header(); ?>
-<!-- ====================================== -->
-
-
-<?php if ( is_page('events') ) { include('page-templates/events.php'); } ?>
-
-<?php if ( is_page('releases') ) { include('page-templates/releases.php'); } ?>
-
-<?php if ( is_page(20250) ) { include('page-templates/natural-microsite.php'); } ?>
-
-
-<!-- ====================================== -->
-<?php get_footer(); ?>
+/** Loads the WordPress Environment and Template */
+require( dirname( __FILE__ ) . '/wp-blog-header.php' );

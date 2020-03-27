@@ -1,1 +1,0 @@
-# la-takedown-wp-theme
