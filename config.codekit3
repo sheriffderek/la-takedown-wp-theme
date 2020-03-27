@@ -243,6 +243,17 @@
 		"opt": 0,
 		"q": 100
 		},
+	"/images/natural/title.jpg": {
+		"ft": 16384,
+		"iS": 46819,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/images/natural/title.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"/images/records/ii/logo.png": {
 		"ft": 32768,
 		"iS": 45962,
@@ -549,6 +560,19 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"/stylus/_card-event.styl": {
+		"aP": 0,
+		"bl": 0,
+		"dS": 0,
+		"ft": 8,
+		"iC": 0,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/css/_card-event.css",
+		"oF": 0,
+		"oS": 0,
+		"rrU": 0
+		},
 	"/stylus/_card-release.styl": {
 		"aP": 0,
 		"bl": 0,
@@ -588,7 +612,7 @@
 		"oS": 0,
 		"rrU": 0
 		},
-	"/stylus/_natural.styl": {
+	"/stylus/_natural-microsite.styl": {
 		"aP": 0,
 		"bl": 0,
 		"dS": 0,
@@ -596,7 +620,7 @@
 		"iC": 0,
 		"ma": 0,
 		"oA": 1,
-		"oAP": "/css/_natural.css",
+		"oAP": "/css/_natural-microsite.css",
 		"oF": 0,
 		"oS": 0,
 		"rrU": 0

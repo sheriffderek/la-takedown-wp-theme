@@ -1,139 +1,16 @@
 
-picture,
-.logo
-  display: block
-  img
-    display: block
-    width: 100%
-    height: auto
-
-
-.site-footer
-  padding: 6rem 0 3rem
-
-.release-list
-  margin-top: 3rem
-  display: flex
-  flex-direction: row
-  flex-wrap: wrap
-  .release
-    // border: 1px solid blue
-    margin-bottom: 3rem
-    flex-basis: 45%
-    &:first-of-type
-      flex-basis: 100%
-
-
-
-remove-list-styles()
-  margin: 0
-  padding: 0
-  list-style: none
-
-release-card
-  display: block
-  ol, ul
-    remove-list-styles()
-  .record-cover
-    width: 85%
-    max-width: 600px
-    box-shadow: 0 2px 3px 2px alpha(black, .1)
-  .title
-    font-size: 16px
-    margin-top: .5rem
-
-event-card
-  display: block
-  // border: 4px double purple
-  ol, ul
-    remove-list-styles()
-
-event-card-mini
-  display: block
-  // border: 4px double green
-  ol, ul
-    remove-list-styles()
-  .link
-    a
-      display: block
-
-
-
-.main-site
-  //
-  padding-top: 40px
-  padding-bottom: 200px
-  font-weight: 400 // ?
-  .main-nav
-    transform: translate(-($pad), 0)
-    .menu
-      remove-list-styles()
-      display: flex
-      flex-direction: row
-    .menu-item
-      //
-    a
-      display: block
-      padding: $pad
-    .current-menu-item
-      a
-        color: green
-  .site-title
-    font-weight: 400
-    opacity: .3
-
-
-
-  .events
-    //
-    ol
-      remove-list-styles()
-    &.past
-      // border: 3px solid red
-    .see-all
-      display: block
-      text-decoration: underline
-      font-size: 12px
-      padding-top: 1rem
-    .more-info
-      text-decoration: underline
-      margin-top: $pad*.5
-
-
-
-  .event-spotlight
-    //
-    .branding-image
-      max-width: 400px
-      border: 1px solid lightgray
-      
-
-
-
-
-
-
-  .site-footer
-    min-height: 200px
-
-
 body.page-template-natural
-  //
-  *
-    box-sizing: border-box
-
-  picture
-    display: block
-    img
-      display: block
-      width: 100%
-      height: auto
+  // 
+  .site-header, .site-footer
+    display: none
+    pointer-events: none
+    // just be gone... not for screen-readers
 
   .stuff
-    // border: 1px solid red
-    padding: 1rem
-    display: flex
-    flex-direction: column
+    border: 4px double red
+    inner-column
+      display: flex
+      flex-direction: column
     section
       // border: 1px solid blue
     .section-heading
@@ -243,7 +120,14 @@ body.page-template-natural
 
   @media (min-width: 900px)
     //
-    .small-screen-only
+    .page-section
+      inner-column
+        position: static
+        width: 100%
+        max-width: initial
+        padding: 0
+
+    .promo
       display: none
       pointer-events: none
 
@@ -281,8 +165,9 @@ body.page-template-natural
       right: 0
       padding: 1rem 2rem 1.7rem
       //
-      flex-direction: row
-      align-items: flex-end
+      inner-column
+        flex-direction: row
+        align-items: flex-end
       button
         color: #96FF83
         color: white
@@ -359,8 +244,6 @@ body.page-template-natural
           // right: $pad*2
           // left: auto
 
-
-
     .content-toggle
       display: block
       padding: .2rem 2rem
@@ -380,35 +263,3 @@ body.page-template-natural
       // border: 1px solid blue
 
 
-
-
-
-
-
-
-body.page-template-events
-  
-  .page-title
-    font-size: 40px
-    margin-bottom: 2rem
-    
-  .events.future
-    // border: 1px solid blue
-  .events.past
-    // border: 1px solid red
-    margin-top: 3rem
-    
-  .events
-    .event-list
-      remove-list-styles()
-    .event
-      //
-      & + .event
-        margin-top: 3rem
-        
-    .section-title
-      font-size: 30px
-      border-bottom: 1px solid lightgray
-
-  .events-break
-    margin: 30px 0

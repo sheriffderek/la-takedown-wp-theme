@@ -11,7 +11,7 @@
   	<header class='page-section site-header'>
   	<inner-column>
 
-  		<h1 class='site-title'><?php the_field('site_title', 'option'); ?></h1>
+  		<h1 class='site-title'>L.A. Takedown</h1>
 
       <nav class='main-nav'>
         <?php wp_nav_menu('main-menu'); ?>

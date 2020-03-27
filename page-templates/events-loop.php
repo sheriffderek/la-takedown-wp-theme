@@ -46,7 +46,7 @@
   } else {
       ?>
 
-        <div class='message'>
+        <div class='no-shows-message'>
           <p>There are currently no upcoming events</p>
         </div>
 

@@ -1,12 +1,10 @@
-<?php get_header(); ?>
-<!-- ====================================== -->
 
 
 <?php
-  $recordId = get_field('associated_record')[0]->ID;
+  $recordId = 20255;
 
   $largeCover = get_field('record_cover_large', $recordId)["url"];
-  $smallCover = get_field('record_cover_small', $recordId)["url"];
+  // $smallCover = get_field('record_cover_small', $recordId)["url"];
 ?>
 
 <?php
@@ -15,16 +13,20 @@
     https://codepen.io/sheriffderek/pen/poJWBde?editors=1001
     https://codepen.io/sheriffderek/pen/ebf5d629621fe78982295e62dc4800db?editors=1010
 
+    // 401099104
+
   */
 ?>
 
 <video-background>
-  <iframe id='video-outlet' src='https://player.vimeo.com/video/400744064?controls=false&loop=true' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <iframe id='video-outlet' src='https://player.vimeo.com/video/401099104?controls=false&loop=true' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </video-background>
 
 
 
-<main class='stuff'>
+<section class='page-section stuff'>
+<inner-column>
+  
 
   <section class='branding'>
     <div class='logo'>
@@ -39,7 +41,7 @@
   <section class='record'>
     <div class='content'>
       <picture class='image-w record-cover'>
-        <img src='<?=$smallCover?>'>
+        <img src='<?=$largeCover?>'>
       </picture>
 
       <ul class='links-to-buy'>
@@ -57,7 +59,7 @@
     </div>
 
     <button class='content-toggle' data-view='record'>
-      <span>The record</span>
+      <span>Albums</span>
     </button>
   </section>
 
@@ -81,7 +83,7 @@
 
 
   <section class='promo'>
-    <div class='content small-screen-only'>
+    <div class='content'>
       <!-- <h2 class='section-heading'>Promo video</h2> -->
       
       <div class='fit-vids' style='position: relative; width: 100%; height: 0; padding-bottom: 75%;'>
@@ -104,9 +106,11 @@
         $emailAddress = get_field('primary_email_address', 'option');
       ?>
 
-      <a href='mailto:<?=$emailAddress?>'>
-        <?=$emailAddress?>
-      </a>
+      <p>
+        <a href='mailto:<?=$emailAddress?>'>
+          <?=$emailAddress?>
+        </a>
+      </p>
 
       <?php include('components/social-links.php'); ?>
     </div>
@@ -122,7 +126,7 @@
     <div class='content'>
       <h2 class='section-heading'>About</h2>
 
-      <?php the_field('general_about', 30); ?>
+      <p><?php the_field('general_about', 30); ?></p>
     </div>
 
     <button class='content-toggle' data-view='about'>
@@ -143,7 +147,10 @@
   </section>
   */ ?>
 
-</main>
+</inner-column>
+</section>
+
+
 
 
 
@@ -212,7 +219,3 @@
   })();
 
 </script>
-
-
-<!-- ====================================== -->
-<?php get_footer(); ?>

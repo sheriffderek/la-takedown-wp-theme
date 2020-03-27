@@ -37,10 +37,10 @@
     </p>
   <?php } ?>
 
-  <p>
+<!--   <p>
     <a href='<?=$releaseLink?>' target='<?=$releaseLink?>'>
       Full details
     </a>
-  </p>
+  </p> -->
 
 </release-card>

@@ -1,4 +1,11 @@
 
+body
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+  .page-content
+    flex-grow: 1
+
 .page-section
   border: 1px solid red
   inner-column
@@ -10,9 +17,6 @@
     padding: $pad
     border: 1px solid blue
 
-body
-  display: flex
-  min-height: 100vh
-  flex-direction: column
-  .page-content
-    flex-grow: 1
+@media (max-width: 600px)
+  .site-header
+    padding-top: $pad*2
