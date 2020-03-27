@@ -1,0 +1,265 @@
+
+body.page-template-natural
+  // 
+  .site-header, .site-footer
+    display: none
+    pointer-events: none
+    // just be gone... not for screen-readers
+
+  .stuff
+    border: 4px double red
+    inner-column
+      display: flex
+      flex-direction: column
+    section
+      // border: 1px solid blue
+    .section-heading
+      font-size: 18px
+    .content
+      //
+  .branding
+    // margin-right: 2rem
+    .logo
+      max-width: 400px
+
+  .record-cover
+    box-shadow: 0 0 3px alpha(black, .2)
+  .links-to-buy
+    remove-list-styles()
+    display: flex
+    flex-direction: row
+    transform: translate(-($pad), 0)
+    a
+      display: block
+      text-decoration: underline
+      padding: $pad
+  .network-list
+    display: flex
+    flex-direction: row
+    transform: translateX(-5px)
+    margin-top: 2px
+    .network
+      display: block
+      padding: $pad*.5
+      height: 25px
+
+  .event-list, .detail-list
+    // should be global... 
+    margin: 0
+    padding: 0
+    list-style: none
+    
+  .event-list
+    // padding-bottom: 1rem
+    .event
+      //
+    .event + .event
+      margin-top: 1rem
+
+  .detail-list
+    .detail
+      font-size: 11px
+    .date
+      // color: red
+      font-size: 13px
+    .title
+      // color: blue
+    .venue
+      // color: green
+    .link
+      text-decoration: underline
+      font-size: 15
+      margin-top: .2rem
+  .past
+    font-size: 13px
+    a
+      text-decoration: underline
+      
+  .section-title
+    display: none
+
+  @media (max-width: 899px)
+    .content-toggle
+      display: none
+      
+    video-background
+      display: none
+
+    .stuff
+      padding-top: $pad*4
+      padding-bottom: $pad*8
+      section + section
+        margin-top: 30px
+      .branding
+        .click-suggestion
+          display: none
+
+      .section-heading
+        margin-bottom: 10px
+        border-bottom: 1px solid gray
+
+    .event-list
+      // border: 1px solid red
+    .record-cover
+      width: 85%
+      max-width: 400px
+    .detail-list
+      .detail
+        font-size: 14px
+      .date
+        // color: red
+        font-size: 16px
+      .title
+        // color: blue
+      .venue
+        // color: green
+      .link
+        text-decoration: underline
+        font-size: 16
+        margin-top: .2rem
+
+  @media (min-width: 900px)
+    //
+    .page-section
+      inner-column
+        position: static
+        width: 100%
+        max-width: initial
+        padding: 0
+
+    .promo
+      display: none
+      pointer-events: none
+
+    video-background
+      position: relative
+      //
+      display: block;
+      //
+      position: fixed
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      overflow: hidden
+      //
+      background: white
+      iframe
+        display: block
+        //
+        width: 100vw
+        height: 80vw /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 - but mine is ~5x4*/
+        min-height: 100vh
+        min-width 132vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 - but mine is ~5x4**/
+        position absolute;
+        bottom: 0
+        left: 50%
+        transform: translateX(-50%) scale(1.1) // because I need it a the bottom...  so the people aren't cut off
+
+    .stuff
+      // border: 1px solid orange
+      // display: none
+      position: fixed
+      bottom: 0
+      left: 0
+      right: 0
+      padding: 1rem 2rem 1.7rem
+      //
+      inner-column
+        flex-direction: row
+        align-items: flex-end
+      button
+        color: #96FF83
+        color: white
+      .branding
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background: white
+        margin-right: 2rem
+        z-index: 20
+        transition: opacity .2s
+        // pointer-events: none // just faking the click - but they are really touching the video...
+        &.fly-away
+          opacity: 0
+          pointer-events: none
+        .click-suggestion
+          text-align: center
+          font-size: 14px
+          opacity: .5
+          padding: 60px 30px
+          position: relative
+          bottom: 60px
+          cursor: pointer
+        .logo
+          max-width: 360px
+          position: fixed
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+          &:hover
+            .click-suggestion
+              opacity: 1
+      .about
+        order: 1
+        .content
+          width: 300px
+        p
+          font-size: 12px
+      .upcoming
+        order: 2
+      .contact
+        order: 3
+      .record
+        order: 4
+      .other-records
+        order: 5
+      section
+        position: relative
+        .content
+          opacity: 0
+          pointer-events: none
+          transition: opacity .2s
+          padding-bottom: 10px
+          &.active
+            opacity: 1
+            pointer-events: initial
+            transition-delay: .3s
+
+      .section-heading
+        display: none
+      .content
+        position: absolute
+        bottom: calc(100% + 10px)
+        left: 2rem
+        width: 180px
+        background: rgba(255,255,255,.8)
+        padding: 10px
+        border: 1px solid rgba(0,0,0,.1)
+        border-radius: 5px
+      .record
+        .content
+          // right: $pad*2
+          // left: auto
+
+    .content-toggle
+      display: block
+      padding: .2rem 2rem
+      background: transparent
+      border: 0
+      margin: 0
+      text-transform: uppercase
+      font-size: 14px
+      *
+        pointer-events: none /* note! */
+      &:focus
+        outline: 0
+        span
+          border-bottom: 1px solid black
+      // padding: 0
+    .event-list
+      // border: 1px solid blue
+
+

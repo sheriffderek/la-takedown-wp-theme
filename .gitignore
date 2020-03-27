@@ -24,7 +24,7 @@
 !/wp-content/themes
 /wp-content/themes/*
 
-!/wp-content/themes/la-takedown-2020
+!/wp-content/themes/la-takedown-2021
 node_modules
 
 
