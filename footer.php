@@ -10,6 +10,10 @@
       <?php wp_nav_menu('main-menu'); ?>
     </nav>
 
+    <div class='legal'>
+      © 2020
+    </div>
+
 	</inner-column>
 	</footer>
 

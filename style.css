@@ -202,20 +202,47 @@ body {
 body .page-content {
   flex-grow: 1;
 }
-.page-title {
-  font-family: 'helvetica';
-  font-size: 20px;
-}
 article p a,
 article h2 a,
 article h3 a,
+article h4 a,
+article h5 a,
 article li a {
   text-decoration: underline;
   color: #00f;
 }
 release-card {
   display: block;
-  border: 2px solid #800080;
+  font-family: 'helvetica';
+  font-size: 12px;
+}
+release-card a {
+  text-decoration: underline;
+}
+@media (hover: hover) {
+  release-card a:hover {
+    color: #a5a967;
+  }
+}
+release-card .record-cover {
+  border: 1px solid #d3d3d3;
+}
+release-card .title {
+  font-family: 'helvetica';
+  font-size: 20px;
+  margin-top: 10px;
+}
+release-card .date {
+  margin-top: 5px;
+}
+release-card .label {
+  margin-top: 5px;
+}
+release-card .purchase-links {
+  border: 1px solid #800080;
+}
+release-card p {
+  margin-top: 5px;
 }
 .page-section.releases .release-list {
   display: flex;
@@ -229,7 +256,7 @@ release-card {
 }
 .main-nav {
   font-family: 'helvetica';
-  font-size: 16px;
+  font-size: 12px;
   text-transform: uppercase;
 }
 .main-nav .menu {
@@ -245,11 +272,11 @@ release-card {
 }
 .site-header .current-menu-item a,
 .site-footer .current-menu-item a {
-  color: #00cdd7;
+  color: #a5a967;
 }
 .site-header .site-title {
   font-family: 'helvetica';
-  font-size: 20px;
+  font-size: 16px;
   text-transform: uppercase;
 }
 @media (min-width: 500px) {
@@ -261,4 +288,17 @@ release-card {
   .site-header .main-nav {
     margin-left: 30px;
   }
+}
+.page-title {
+  margin: 40px 0;
+  font-family: 'helvetica';
+  font-size: 40px;
+}
+.site-footer inner-column {
+  padding-bottom: 60px;
+}
+.site-footer .legal {
+  font-family: 'helvetica';
+  font-size: 12px;
+  opacity: 0.5;
 }

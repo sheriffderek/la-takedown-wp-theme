@@ -3,7 +3,7 @@ $standard-font = 'helvetica'
 
 micro-voice()
   font-family: $standard-font
-  font-size: 14px
+  font-size: 12px
   
 calm-voice()
   font-family: $standard-font
@@ -13,16 +13,17 @@ strong-voice()
   font-family: $standard-font
   font-size: 20px
   
+loud-voice()
+  font-family: $standard-font
+  font-size: 40px
+
 uppercase()
   text-transform: uppercase
 
 
-.page-title
-  strong-voice()
-
 
 article
-  p, h2, h3, li
+  p, h2, h3, h4, h5, li
     a
       text-decoration: underline
       color: blue

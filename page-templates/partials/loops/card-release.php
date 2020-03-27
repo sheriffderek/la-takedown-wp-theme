@@ -9,6 +9,30 @@
     <?php } ?>
   </picture>
 
-  <h2 class='title'><?php echo get_the_title(); ?></h2>
+  <h2 class='title'>
+    <?=$title?>
+  </h2>
+
+  <h3 class='date'>
+    Released: <?=$date?>
+  </h3>
+
+  <h4 class='label'>
+    <?php if ($labelUrl) { ?>
+      <a href='<?=$labelUrl?>' target='<?=$labelName?>'>
+        <?=$labelName?>
+      </a>
+    <?php } else { ?>
+      <?=$labelName?>
+    <?php } ?>
+  </h4>
+
+    <?php if ($micrositeUrl) { ?>
+      <p>
+        <a href='<?=$micrositeUrl?>' target='<?=$title?>'>
+          Visit micro-site
+        </a>
+      </p>
+    <?php } ?>
 
 </release-card>

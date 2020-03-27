@@ -24,8 +24,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 @import '_releases'
 
 
+// $todo - if the site gets bigger - they partial these out - but so far / the main pages are simple
 .main-nav // this is set in the admin panel
-  calm-voice()
+  micro-voice()
   uppercase()
   .menu
     display: flex
@@ -45,7 +46,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   inner-column
     //
   .site-title
-    strong-voice()
+    calm-voice()
     uppercase()
   @media (min-width: 500px)
     inner-column
@@ -54,3 +55,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
       align-items: center
     .main-nav
       margin-left: 30px
+      
+.page-title
+  margin: $pad*4 0
+  loud-voice()
+
+.site-footer
+  inner-column
+    padding-bottom: $pad*6
+  .legal
+    micro-voice()
+    opacity: .5
