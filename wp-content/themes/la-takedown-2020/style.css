@@ -194,9 +194,6 @@ body {
 body .page-content {
   flex-grow: 1;
 }
-.page-section {
-  border: 1px solid #f00;
-}
 .page-section inner-column {
   display: block;
   width: 98%;
@@ -204,7 +201,6 @@ body .page-content {
   margin-right: auto;
   margin-left: auto;
   padding: 10px;
-  border: 1px solid #00f;
 }
 @media (max-width: 600px) {
   .site-header {

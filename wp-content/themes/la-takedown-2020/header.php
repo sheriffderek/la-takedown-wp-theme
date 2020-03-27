@@ -14,7 +14,7 @@
   		<h1 class='site-title'>L.A. Takedown</h1>
 
       <nav class='main-nav'>
-        <?php wp_nav_menu('main-menu'); ?>
+        <?php // wp_nav_menu('main-menu'); ?>
       </nav>
 
   	</inner-column>

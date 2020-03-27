@@ -7,11 +7,11 @@
 	<inner-column>
 
     <nav class='main-nav'>
-      <?php wp_nav_menu('main-menu'); ?>
+      <?php // wp_nav_menu('main-menu'); ?>
     </nav>
 
     <div class='legal'>
-      © <?php echo date('Y'); ?> TEST
+      © <?php echo date('Y'); ?>
     </div>
 
 	</inner-column>
