@@ -1,0 +1,56 @@
+/*!
+Theme Name: L.A. Takedown 2015
+Theme URI: http://sheriffderek.consulting
+Author: @sheriffderek
+Author URI: http://sheriffderek.consulting
+Description: A custom theme for the band L.A. Takedown
+Version: 2.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+// setup
+@import '_meyer-reset'
+@import '_setup'
+
+// global
+@import '_structure'
+@import '_type'
+
+// components
+@import '_card-release'
+
+// pages
+@import '_releases'
+
+
+.main-nav // this is set in the admin panel
+  calm-voice()
+  uppercase()
+  .menu
+    display: flex
+    flex-direction: row
+  .menu-item
+    //
+  a
+    padding: $pad
+
+.site-header, .site-footer
+  .menu
+    transform: translate(-($pad), 0)
+  .current-menu-item
+    a
+      color: $color
+.site-header
+  inner-column
+    //
+  .site-title
+    strong-voice()
+    uppercase()
+  @media (min-width: 500px)
+    inner-column
+      display: flex
+      flex-direction: row
+      align-items: center
+    .main-nav
+      margin-left: 30px
