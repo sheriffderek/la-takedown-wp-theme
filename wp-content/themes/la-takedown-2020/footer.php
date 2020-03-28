@@ -11,7 +11,7 @@
     </nav>
 
     <div class='legal'>
-      © <?php echo date('Y'); ?> TEST
+      © <?php echo date('Y'); ?> (currently switching server)
     </div>
 
 	</inner-column>
