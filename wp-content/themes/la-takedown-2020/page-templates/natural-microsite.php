@@ -20,7 +20,7 @@
 ?>
 
 <video-background>
-  <iframe id='video-outlet' src='https://player.vimeo.com/video/400744064?controls=false&loop=true' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <iframe id='video-outlet' allow='autoplay' src='https://player.vimeo.com/video/400744064?controls=false&loop=true' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </video-background>
 
 
