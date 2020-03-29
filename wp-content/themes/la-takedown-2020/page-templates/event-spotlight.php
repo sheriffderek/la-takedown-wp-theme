@@ -2,7 +2,7 @@
 <?php
   include('get-event-data.php');
 
-  if ($poster) {
+  if (!$poster) {
     $poster = $decorativeImage;
   }
 ?>
