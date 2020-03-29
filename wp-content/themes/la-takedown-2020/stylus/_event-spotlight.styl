@@ -1,0 +1,47 @@
+
+.event-spotlight
+  margin-top: $pad*2
+  //
+  calm-voice()
+  a
+    text-decoration: underline
+  .theme-image
+    width: 80%
+    max-width: 400px
+    border: 1px solid lightgray
+    margin-bottom: $pad
+  .title
+    loud-voice()
+  .date
+    strong-voice()
+    opacity: .6
+    margin-bottom: $pad*.5
+  .line-up
+    margin-top: $pad*2
+    margin-bottom: $pad*2
+    h2
+      strong-voice()
+  .act-list
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    .act
+      margin-right: $pad
+      &:not(:last-of-type)
+        &:after
+          content: ', '
+  .mc
+    margin-top: $pad
+    font-style: italic
+  .start-time
+    margin-top: $pad
+  .fb-invite
+    margin-top: $pad
+  .description
+    margin-top: $pad*4
+  @media (min-width: 940px)
+    inner-column
+      display: flex
+      flex-basis: row
+    info
+      padding-left: $pad*4

@@ -13,6 +13,8 @@
 
 <?php if ( is_page(20250) ) { include('page-templates/natural-microsite.php'); } ?>
 
+<?php if ( is_singular('event') ) { include('page-templates/event-spotlight.php'); } ?>
+
 
 <!-- ====================================== -->
 <?php get_footer(); ?>

@@ -194,6 +194,9 @@ picture svg,
   width: 100%;
   height: 100%;
 }
+text-content {
+  display: block;
+}
 .visually-hidden {
   position: absolute !important;
   height: 1px;
@@ -328,6 +331,75 @@ event-card .link a {
 }
 .page-section.events .event + .event {
   margin-top: 40px;
+}
+.event-spotlight {
+  margin-top: 20px;
+  font-family: 'helvetica';
+  font-size: 16px;
+  line-height: 1.4;
+}
+.event-spotlight a {
+  text-decoration: underline;
+}
+.event-spotlight .theme-image {
+  width: 80%;
+  max-width: 400px;
+  border: 1px solid #d3d3d3;
+  margin-bottom: 10px;
+}
+.event-spotlight .title {
+  font-family: 'helvetica';
+  font-size: 40px;
+  line-height: 1.4;
+}
+.event-spotlight .date {
+  font-family: 'helvetica';
+  font-size: 20px;
+  line-height: 1.4;
+  opacity: 0.6;
+  margin-bottom: 5px;
+}
+.event-spotlight .line-up {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.event-spotlight .line-up h2 {
+  font-family: 'helvetica';
+  font-size: 20px;
+  line-height: 1.4;
+}
+.event-spotlight .act-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.event-spotlight .act-list .act {
+  margin-right: 10px;
+}
+.event-spotlight .act-list .act:not(:last-of-type):after {
+  content: ', ';
+}
+.event-spotlight .mc {
+  margin-top: 10px;
+  font-style: italic;
+}
+.event-spotlight .start-time {
+  margin-top: 10px;
+}
+.event-spotlight .fb-invite {
+  margin-top: 10px;
+}
+.event-spotlight .description {
+  margin-top: 40px;
+}
+@media (min-width: 940px) {
+  .event-spotlight inner-column {
+    display: flex;
+    flex-basis: row;
+  }
+  .event-spotlight info {
+    padding-left: 40px;
+  }
 }
 body.page-id-20250 .site-header,
 body.page-id-20250 .site-footer {

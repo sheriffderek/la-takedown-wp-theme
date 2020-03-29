@@ -354,6 +354,14 @@
 		"oAP": "/page-templates/components/social-links.php",
 		"oF": 0
 		},
+	"/page-templates/event-spotlight.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/page-templates/event-spotlight.php",
+		"oF": 0
+		},
 	"/page-templates/events-loop.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -416,14 +424,6 @@
 		"hM": 0,
 		"oA": 2,
 		"oAP": "/partials/contextual-metadata.php",
-		"oF": 0
-		},
-	"/partials/facebook-opengraph.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/partials/facebook-opengraph.php",
 		"oF": 0
 		},
 	"/partials/functions/basics.php": {
@@ -590,6 +590,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "/css/_card-release.css",
+		"oF": 0,
+		"oS": 0,
+		"rrU": 0
+		},
+	"/stylus/_event-spotlight.styl": {
+		"aP": 0,
+		"bl": 0,
+		"dS": 0,
+		"ft": 8,
+		"iC": 0,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/css/_event-spotlight.css",
 		"oF": 0,
 		"oS": 0,
 		"rrU": 0
