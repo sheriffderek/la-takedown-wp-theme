@@ -4,29 +4,30 @@ $standard-font = 'helvetica'
 micro-voice()
   font-family: $standard-font
   font-size: 12px
+  line-height: 1.4
   
 calm-voice()
   font-family: $standard-font
   font-size: 16px
+  line-height: 1.4
   
 strong-voice()
   font-family: $standard-font
   font-size: 20px
+  line-height: 1.4
   
 loud-voice()
   font-family: $standard-font
   font-size: 40px
+  line-height: 1.4
 
 uppercase()
   text-transform: uppercase
 
+p, h2, h3, h4, h5, li
+  a
+    display: inline-block
+    text-decoration: underline
 
-
-article, .content
-  p, h2, h3, h4, h5, li
-    a
-      display: inline-block
-      text-decoration: underline
-      color: blue
-  p
-    calm-voice()
+p
+  calm-voice()

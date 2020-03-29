@@ -1,0 +1,226 @@
+
+body.page-id-20250
+  //
+  @media (min-width: 900px)
+    //
+    
+    &.video-loaded
+      .overlay .branding
+        pointer-events: initial
+        opacity: 1
+      [rel='toggle-video']
+        // pointer-events: initial
+        // opacity: 1
+      .overlay
+        pointer-events: initial
+    &.played
+      .stuff
+        transition-delay: 5s
+        opacity: 1
+        pointer-events: initial
+    .page-section // reset from the site defaults
+      // border: 1px solid blue
+      inner-column
+        position: static
+        width: 100%
+        max-width: initial
+        padding: 0
+        // border: 1px solid red
+
+    video-background
+      display: block
+      position: relative
+      //
+      position: fixed
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      overflow: hidden
+      //
+      background: white
+      iframe
+        display: block
+        //
+        width: 100vw
+        height: 80vw /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 - but mine is ~5x4*/
+        min-height: 100vh
+        min-width 132vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 - but mine is ~5x4**/
+        position absolute;
+        bottom: 0
+        left: 50%
+        transform: translateX(-50%) scale(1.1) // because I need it a the bottom...  so the people aren't cut off
+
+    .promo
+      visually-hidden()
+      pointer-events: none
+      display: none
+
+    .stuff
+      position: fixed
+      bottom: 0
+      left: 0
+      right: 0
+      padding: 1rem 2rem 1.7rem
+      //
+      opacity: 0
+      pointer-events: none
+      transition: 3s
+      // background: black
+      inner-column
+        flex-direction: row
+        align-items: flex-end
+
+      section
+        position: relative
+        *
+          user-select: none
+        .section-heading
+          display: none
+        .content
+          position: absolute
+          bottom: calc(100% + 10px)
+          left: 2rem
+          width: 180px
+          background: rgba(255,255,255,.8)
+          padding: 10px
+          border: 1px solid rgba(0,0,0,.1)
+          // border-radius: 5px
+          //
+          opacity: 0
+          pointer-events: none
+          transition: .15s
+          // transform: translateY(14px) // kinda fun... but doesn't match the feel of the song
+          &.active
+            opacity: 1
+            pointer-events: initial
+            transition-delay: .2s
+            transform: translateY(0)
+            max-height: 600px
+            overflow: auto
+
+      // reorder these
+      .about
+        order: 1
+      .upcoming
+        order: 2
+      .contact
+        order: 3
+      .record
+        order: 4
+        .content
+          width: 210px
+      .other-records
+        order: 5
+      .controls
+        order: 6
+        margin-left: auto
+
+
+    .content-toggle
+      remove-button-styles()
+      padding: .2rem 2rem
+      //
+      color: $white
+      font-size: 14px
+      letter-spacing: 0.05em
+      uppercase()
+      *
+        pointer-events: none /* note! */
+      &:focus
+        // not sure what to do here...
+        outline: 0
+        // this is a lot to ask in this case... 
+        // with no budget...
+
+
+    .stuff
+      .content
+        p, li
+          micro-voice()
+      .branding
+        padding-bottom: $pad*.2
+        margin-right: 20px
+        .logo
+          max-width: 150px
+        .la
+          fill: alpha($white, 1)
+        .takedown
+          fill: $white
+          
+      .about
+        .content
+          width: 800px // arbitrary... not sure why 100% doesn't know what it is
+          max-width: 320px
+          
+      .upcoming
+        .no-shows-message
+          p + p
+            margin-top: $pad*.7
+
+      .contact
+        .content
+          padding-bottom: 3px
+
+    [rel='toggle-video']
+      remove-button-styles()
+      padding: .2rem .5rem
+      //
+      color: $white
+      font-size: 14px
+      letter-spacing: 0.05em
+      uppercase()
+      //
+      pointer-events: none
+      opacity: 0
+      transition: 1s
+      transition-delay: .5s
+      &:focus
+        outline: 0
+
+
+    // OVERLAY
+    .overlay
+      display: block // from default
+      //
+      position: fixed
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      //
+      background: white
+      //
+      opacity: 1
+      transition: opacity 1s
+      pointer-events: none
+      //
+      z-index: 10
+      .branding
+        max-width: 360px
+        position: fixed
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        cursor: pointer
+        user-select: none
+        opacity: 0
+        transition: 2s
+        *
+          pointer-events: none // note
+      .click-suggestion
+        color: $black
+        opacity: .3
+        text-align: center
+        micro-voice()
+        font-size: 12px
+        letter-spacing: .05em
+      @media (hover:hover)
+        .branding
+          &:hover
+            .click-suggestion
+              opacity: .7
+
+      &.fly-away
+        opacity: 0
+        pointer-events: none

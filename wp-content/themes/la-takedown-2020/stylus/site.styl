@@ -46,12 +46,21 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   .current-menu-item
     a
       color: $color
+
 .site-header
   inner-column
     //
   .site-title
     calm-voice()
     uppercase()
+    
+  .logo
+    max-width: 140px
+    margin-top: $pad*2
+    .la
+      fill: alpha($black, .5)
+    .takedown
+      fill: $black
   @media (min-width: 500px)
     inner-column
       display: flex
@@ -71,3 +80,5 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   .legal
     micro-voice()
     opacity: .5
+    
+

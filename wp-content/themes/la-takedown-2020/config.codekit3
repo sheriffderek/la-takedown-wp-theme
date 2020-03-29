@@ -330,6 +330,14 @@
 		"oAP": "/page-templates/components/card-release.php",
 		"oF": 0
 		},
+	"/page-templates/components/logo.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 2,
+		"oAP": "/page-templates/components/logo.php",
+		"oF": 0
+		},
 	"/page-templates/components/purchase-links-loop.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -612,6 +620,19 @@
 		"oS": 0,
 		"rrU": 0
 		},
+	"/stylus/_natural-large.styl": {
+		"aP": 0,
+		"bl": 0,
+		"dS": 0,
+		"ft": 8,
+		"iC": 0,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/css/_natural-large.css",
+		"oF": 0,
+		"oS": 0,
+		"rrU": 0
+		},
 	"/stylus/_natural-microsite.styl": {
 		"aP": 0,
 		"bl": 0,
@@ -621,6 +642,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "/css/_natural-microsite.css",
+		"oF": 0,
+		"oS": 0,
+		"rrU": 0
+		},
+	"/stylus/_natural-small.styl": {
+		"aP": 0,
+		"bl": 0,
+		"dS": 0,
+		"ft": 8,
+		"iC": 0,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/css/_natural-small.css",
 		"oF": 0,
 		"oS": 0,
 		"rrU": 0

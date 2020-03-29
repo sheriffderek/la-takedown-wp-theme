@@ -47,7 +47,13 @@
       ?>
 
         <div class='no-shows-message'>
-          <p>There are currently no upcoming events</p>
+          <text-area>
+            <p>There are currently no upcoming events</p>
+
+            <?php if (is_page(20250)) { ?>
+              <p>View <a href='/events' target='events'>past events</a></p>
+            <?php } ?>
+          </text-area>
         </div>
 
       <?php

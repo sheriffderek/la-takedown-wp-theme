@@ -13,13 +13,14 @@
     https://codepen.io/sheriffderek/pen/poJWBde?editors=1001
     https://codepen.io/sheriffderek/pen/ebf5d629621fe78982295e62dc4800db?editors=1010
 
-    // 401099104
+    // 401099104  --- with thumb
+    // 400744064  --- with white
 
   */
 ?>
 
 <video-background>
-  <iframe id='video-outlet' src='https://player.vimeo.com/video/401099104?controls=false&loop=true' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <iframe id='video-outlet' src='https://player.vimeo.com/video/400744064?controls=false&loop=true' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </video-background>
 
 
@@ -30,29 +31,35 @@
 
   <section class='branding'>
     <div class='logo'>
-      <img src='<?php echo get_template_directory_uri(); ?>/images/natural/title.jpg'>
-      <div class='click-suggestion'>
-        (click to enter)
-      </div>
+      <?php include('components/logo.php'); ?>
     </div>
   </section>
 
 
   <section class='record'>
     <div class='content'>
-      <picture class='image-w record-cover'>
-        <img src='<?=$largeCover?>'>
-      </picture>
+      <h2 class='section-heading'>Our Feeling of Natural High: Out&nbsp;Now</h2>
+
+      <a href='/releases' target='releases'>
+        <picture class='image-w record-cover'>
+          <img src='<?=$largeCover?>'>
+        </picture>
+      </a>
 
       <ul class='links-to-buy'>
         <li>
-          <a href='http://smarturl.it/LATakedownIIDL'>
+          <a href='https://www.castlefacerecords.com/products/l-a-takedown-our-feeling-of-natural-high' target='lp'>
+            <span>LP/CD</span>
+          </a>
+        </li>
+        <li>
+          <a href='https://latakedown.bandcamp.com/album/our-feeling-of-natural-high' target='band-camp'>
             <span>Digital</span>
           </a>
         </li>
         <li>
-          <a href='http://smarturl.it/LATakedownIIRM'>
-            <span>CD/LP</span>
+          <a href='/releases' target='releases'>
+            <span>All Albums</span>
           </a>
         </li>
       </ul>
@@ -70,9 +77,9 @@
       <h2 class='section-heading'>Upcoming</h2>
       
       <?php $useMiniEventCard = true; ?>
-      <?php $eventsToShow = 3; ?>
+      <?php // $eventsToShow = 3; ?>
       <?php $onlyUpcoming = true; ?>
-      <?php include('partials/loops/events-loop.php'); ?>
+      <?php include('events-loop.php'); ?>
     </div>
 
     <button class='content-toggle' data-view='upcoming'>
@@ -135,6 +142,14 @@
   </section>
 
 
+
+
+  <section class='controls'>
+    <button rel='toggle-video'>
+      Play
+    </button>
+  </section>
+
   <?php /*
   <section class='other-records'>
     <div class='content'>
@@ -152,6 +167,14 @@
 
 
 
+<section class='overlay'>
+  <picture class='branding' rel='enter-site'>
+    <img src='<?php echo get_template_directory_uri(); ?>/images/natural/title.jpg'>
+    <div class='click-suggestion'>
+      (play video)
+    </div>
+  </picture>
+</section>
 
 
 
@@ -167,7 +190,42 @@
     // Video
     var $videoOutlet = document.querySelector('#video-outlet');
     var backgroundPlayer = new Vimeo.Player($videoOutlet);
+    var videoPlayed = false;
 
+
+
+
+    function handleVideoPlayerToggle() {
+      console.log( 'should toggle video' );
+      backgroundPlayer.play();
+    }
+
+
+
+    function handleContentToggle() {
+      var isActive = event.target.closest('section').querySelector('.content').classList.contains('active');
+      if (isActive) {
+        event.target.closest('section').querySelector('.content').classList.remove('active');
+        return;
+      }
+      document.querySelectorAll('.content').forEach( function(section) {
+        section.classList.remove('active');
+      });
+      event.target.closest('section').querySelector('.content').classList.toggle('active');
+    }
+
+
+    function handlePlayerError() {
+      var reloadPage = confirm(`There has been an error with the video player. The browser doesn't believe that by clicking 'enter' that you really want to start the video. Would you like to try again?`);
+      if (reloadPage) {
+        location.reload();
+      }
+    }
+
+
+    backgroundPlayer.ready().then(function() {
+      console.log('player is ready');
+    });
 
     backgroundPlayer.on('loaded', function() {
       document.body.classList.add('video-loaded');
@@ -175,45 +233,69 @@
     });
 
     backgroundPlayer.on('play', function() {
-      // document.querySelector('.branding').classList.add('fly-away');
+      console.log('on-play');
+      if (!videoPlayed) {
+        document.body.classList.add('played');
+      }
       document.body.classList.add('playing');
     });
 
     backgroundPlayer.on('pause', function() {
-      document.body.classList.remove('playing');
+      console.log('on-pause');
+      if (videoPlayed) {
+        document.body.classList.remove('playing');
+      }
     });
 
-    
-    document.addEventListener('click', function(event) {
+    backgroundPlayer.on('error', function(error) {
+      console.log('error: ', error);
+      handlePlayerError()
+    });
 
+
+
+
+    var contentFadeOutDelay = 20 * 1000; // 20 seconds
+    
+
+    document.addEventListener('click', function(event) {
+      console.log('document was clicked');
       // little content section toggles on large screens
       clearTimeout(fadeOutTime);
 
       if ( event.target.matches('.content-toggle') ) {
-        var isActive = event.target.closest('section');
-        console.log('active?:', isActive);
-        document.querySelectorAll('.content').forEach( function(section) {
-          section.classList.remove('active');
-        });
-        event.target.closest('section').querySelector('.content').classList.toggle('active');
+        handleContentToggle()
       }
+
       fadeOutTime = setTimeout( function() {
         document.querySelectorAll('.content').forEach( function(section) {
           section.classList.remove('active');
         });
-      }, 20000);
+      }, contentFadeOutDelay);
 
       // site enter button
-      if ( event.target.matches('.click-suggestion') ) {
-        document.querySelector('.branding').classList.add('fly-away');
+      if ( event.target.matches('[rel="enter-site"]') ) {
+        console.log('enter-site-clicked');
+        document.querySelector('.overlay').classList.add('fly-away');
         backgroundPlayer.play();
       }
 
-      if ( event.target.matches('.stuff') ) {
-        // don't trigger video player in this area
-        event.stopPropagation();
+      if ( event.target.matches('[rel="toggle-video"]') ) {
+        //
       }
+
+      console.log(event.target, ' was clicked');
+
     });
+
+
+
+    window.onblur = function() {
+      document.querySelectorAll('.content').forEach( function(section) {
+        section.classList.remove('active');
+      });
+    };
+
 
 
   })();

@@ -7,11 +7,11 @@
 	<inner-column>
 
     <nav class='main-nav'>
-      <?php // wp_nav_menu('main-menu'); ?>
+      <?php wp_nav_menu('main-menu'); ?>
     </nav>
 
     <div class='legal'>
-      © <?php echo date('Y'); ?> (switching server)
+      © 2015 - <?php echo date('Y'); ?>
     </div>
 
 	</inner-column>

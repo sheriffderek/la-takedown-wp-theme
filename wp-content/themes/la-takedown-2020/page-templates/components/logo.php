@@ -1,8 +1,41 @@
-
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 871.6 457" enable-background="new 0 0 871.6 457" xml:space="preserve">
+	
+<defs>
 
+		<linearGradient id="la_gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+			<stop offset="0%" stop-color="#3b1c6d"/>
+			<stop offset='50%' stop-color='#973f7a'/>
+			<stop offset="100%" stop-color="#e59f63"/>
+		</linearGradient>
+
+		<linearGradient id="takedown_gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+			<stop offset="0" stop-color="#e08b66"/>
+			<stop offset="1" stop-color="#fcf64c"/>
+		</linearGradient>
+
+		<!-- a transparent grey glow with no offset -->
+		<filter id="glow">
+				<feColorMatrix type="matrix" values=
+										"255 255 255 0.5 0
+										 255 255 255 0.5 0
+										 255 255 255 0.5 0
+										 255 255 255 0.5 0"/>
+				<feGaussianBlur stdDeviation='10' result="coloredBlur"/>
+				<feMerge>
+						<feMergeNode in="coloredBlur"/>
+						<feMergeNode in="SourceGraphic"/>
+				</feMerge>
+		</filter>
+
+	</defs>
+	
+	<g id='la' class='la'>
+		<polygon id='l' points='220.8,0 220.8,316.5 333.5,203.2 333.5,0'/>
+		<polygon id='a' points='333.5,203.2 536.2,203.2 536.2,0'/>
+	</g>
+	
 	<g id="takedown" class='takedown'>
-		<path fill="red" d="M0,371.8c1.2-0.7,1.1-2.1,1.3-3.2c0.4-1.6,1.2-2.2,2.9-2.6c7.6-1.7,15.3-3.4,22.8-5.5
+		<path d="M0,371.8c1.2-0.7,1.1-2.1,1.3-3.2c0.4-1.6,1.2-2.2,2.9-2.6c7.6-1.7,15.3-3.4,22.8-5.5
 			c9.9-2.7,19.9-4.8,30-6.4c8.1-1.2,16.1-2.6,24.1-3.9c1.8-0.3,3.1-0.9,4.1-2.5c3.7-6.1,7.5-12.3,11.3-18.4c0.9-1.5,2-3,3.3-4.1
 			c3.9-3.3,7.2-7,9.6-11.5c0.1-0.1,0.2-0.3,0.3-0.4c3.8-7.2,9.1-13.1,15.1-18.5c1.2-1,2.1-1.4,3.6-0.8c3,1.3,6,2.6,8.4,5.2
 			c-1,1.2-1.8,2.4-2.7,3.4c-0.8,1-1.8,1.8-2.7,2.7c-11.3,10.8-20.2,23.4-27.9,37c-0.6,1-1,2.1-1.7,3.7c1.5-0.2,2.5-0.2,3.4-0.4
@@ -102,8 +135,5 @@
 			c-0.1-0.2-0.2-0.4-0.3-0.6c-2,0.1-3.9,0.3-5.9,0.4c-1.2,0.1-2.1,0.6-2.8,1.5c-3.3,4.2-6.7,8.3-10.1,12.5c-0.4,0.4-0.6,1-0.9,1.5
 			c0.1,0.1,0.3,0.2,0.4,0.3C431.9,327.8,439.2,323.6,444.5,317z"/>
 	</g>
-
-
-
 
 </svg>

@@ -5,7 +5,11 @@
     <li class='detail title'><?=$title?></li>
     <!-- <li class='detail venue'><?=$venueName?></li> -->
     <li class='detail'>
-      <?=$startTime?>, <?=$ageRestriction?>
+      <?php if ($startTime) { ?>
+        <?=$startTime?>,
+      <?php } ?>
+
+      <?=$ageRestriction?>
     </li>
 
     <li class='detail link'>

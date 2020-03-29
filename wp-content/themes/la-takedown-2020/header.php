@@ -11,10 +11,16 @@
   	<header class='page-section site-header'>
   	<inner-column>
 
-  		<h1 class='site-title'>L.A. Takedown</h1>
+  		<h1 class='site-title visually-hidden'>
+        L.A. Takedown
+      </h1>
+
+      <div class='logo'>
+        <?php include('page-templates/components/logo.php'); ?>
+      </div>
 
       <nav class='main-nav'>
-        <?php // wp_nav_menu('main-menu'); ?>
+        <?php wp_nav_menu('main-menu'); ?>
       </nav>
 
   	</inner-column>
