@@ -6,7 +6,7 @@
   $largeCover = get_field('record_cover_large', $recordId)["url"];
   // $smallCover = get_field('record_cover_small', $recordId)["url"];
 
-  $aboutText = get_field('about', $recordId) ? get_field('about', $recordId) : the_field('general_about', 30);
+  $aboutText = get_field('about') ? get_field('about') : get_field('general_about', 30);
 ?>
 
 <?php
