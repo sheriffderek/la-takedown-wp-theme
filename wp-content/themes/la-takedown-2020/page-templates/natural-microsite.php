@@ -5,6 +5,8 @@
 
   $largeCover = get_field('record_cover_large', $recordId)["url"];
   // $smallCover = get_field('record_cover_small', $recordId)["url"];
+
+  $aboutText = get_field('about', $recordId) ? get_field('about', $recordId) : the_field('general_about', 30);
 ?>
 
 <?php
@@ -133,7 +135,7 @@
     <div class='content'>
       <h2 class='section-heading'>About</h2>
 
-      <p><?php the_field('general_about', 30); ?></p>
+      <p><?=$aboutText?></p>
     </div>
 
     <button class='content-toggle' data-view='about'>
