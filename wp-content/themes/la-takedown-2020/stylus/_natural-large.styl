@@ -3,6 +3,17 @@ body.page-id-20250
   //
   @media (min-width: 900px)
     //
+    background-color: black
+    background-image:url("images/natural/la-tree-background.jpg");
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center bottom
+    
+
+    .page-section.stuff
+      transition-delay: 5s
+      opacity: 1
+      pointer-events: initial
     
     &.video-loaded
       .overlay .branding
@@ -13,11 +24,7 @@ body.page-id-20250
         // opacity: 1
       .overlay
         pointer-events: initial
-    &.played
-      .stuff
-        transition-delay: 5s
-        opacity: 1
-        pointer-events: initial
+
     .page-section // reset from the site defaults
       // border: 1px solid blue
       inner-column
@@ -189,7 +196,7 @@ body.page-id-20250
       width: 100%
       height: 100%
       //
-      background: white
+      background: gray
       //
       opacity: 1
       transition: opacity 1s

@@ -4,7 +4,7 @@
   <?php require('partials/head.php'); ?>
 
 
-  <body <?php body_class('main-site'); ?>>
+  <body <?php body_class('main-site'); ?> class='played'>
 	 
     <?php include('partials/icons.php'); // svg icons ?>
 

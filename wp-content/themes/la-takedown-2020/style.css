@@ -552,16 +552,23 @@ body.page-id-20250 .section-title {
   }
 }
 @media (min-width: 900px) {
+  body.page-id-20250 {
+    background-color: #000;
+    background-image: url("images/natural/la-tree-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+  }
+  body.page-id-20250 .page-section.stuff {
+    transition-delay: 5s;
+    opacity: 1;
+    pointer-events: initial;
+  }
   body.page-id-20250.video-loaded .overlay .branding {
     pointer-events: initial;
     opacity: 1;
   }
   body.page-id-20250.video-loaded .overlay {
-    pointer-events: initial;
-  }
-  body.page-id-20250.played .stuff {
-    transition-delay: 5s;
-    opacity: 1;
     pointer-events: initial;
   }
   body.page-id-20250 .page-section inner-column {
@@ -739,7 +746,7 @@ body.page-id-20250 .section-title {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: #808080;
     opacity: 1;
     transition: opacity 1s;
     pointer-events: none;

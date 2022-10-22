@@ -21,9 +21,10 @@
   */
 ?>
 
-<video-background>
+<!-- <video-background>
   <iframe id='video-outlet' allow='autoplay' src='https://player.vimeo.com/video/400744064?controls=false&loop=true' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </video-background>
+ -->
 
 
 
@@ -169,15 +170,6 @@
 
 
 
-<section class='overlay'>
-  <picture class='branding' rel='enter-site'>
-    <img src='<?php echo get_template_directory_uri(); ?>/images/natural/title.jpg'>
-    <div class='click-suggestion'>
-      (play video)
-    </div>
-  </picture>
-</section>
-
 
 
 <script>
@@ -190,17 +182,17 @@
 
 
     // Video
-    var $videoOutlet = document.querySelector('#video-outlet');
-    var backgroundPlayer = new Vimeo.Player($videoOutlet);
+    // var $videoOutlet = document.querySelector('#video-outlet');
+    // var backgroundPlayer = new Vimeo.Player($videoOutlet);
     var videoPlayed = false;
 
 
 
-
-    function handleVideoPlayerToggle() {
-      console.log( 'should toggle video' );
-      backgroundPlayer.play();
-    }
+    //
+    // function handleVideoPlayerToggle() {
+    //   console.log( 'should toggle video' );
+    //   backgroundPlayer.play();
+    // }
 
 
 
@@ -217,42 +209,40 @@
     }
 
 
-    function handlePlayerError() {
-      var reloadPage = confirm(`There has been an error with the video player. The browser doesn't believe that by clicking 'enter' that you really want to start the video. Would you like to try again?`);
-      if (reloadPage) {
-        location.reload();
-      }
-    }
+    // function handlePlayerError() {
+    //   var reloadPage = confirm(`There has been an error with the video player. The browser doesn't believe that by clicking 'enter' that you really want to start the video. Would you like to try again?`);
+    //   if (reloadPage) {
+    //     location.reload();
+    //   }
+    // }
 
+    // Video player is ready (1)
+    // backgroundPlayer.ready().then(function() {
+    //   console.log('player is ready');
+    // });
 
-    backgroundPlayer.ready().then(function() {
-      console.log('player is ready');
-    });
+    // // Video loaded (2)
+    // backgroundPlayer.on('loaded', function() {
+    //   document.body.classList.add('video-loaded');
+    //   console.log('backgroundPlayer is now loaded');
+    // });
 
-    backgroundPlayer.on('loaded', function() {
-      document.body.classList.add('video-loaded');
-      console.log('backgroundPlayer is now loaded');
-    });
+    // backgroundPlayer.on('play', function() {
+    //   console.log('on-play');
+    //   document.body.classList.add('playing');
+    // });
 
-    backgroundPlayer.on('play', function() {
-      console.log('on-play');
-      if (!videoPlayed) {
-        document.body.classList.add('played');
-      }
-      document.body.classList.add('playing');
-    });
+    // backgroundPlayer.on('pause', function() {
+    //   console.log('on-pause');
+    //   if (videoPlayed) {
+    //     document.body.classList.remove('playing');
+    //   }
+    // });
 
-    backgroundPlayer.on('pause', function() {
-      console.log('on-pause');
-      if (videoPlayed) {
-        document.body.classList.remove('playing');
-      }
-    });
-
-    backgroundPlayer.on('error', function(error) {
-      console.log('error: ', error);
-      handlePlayerError()
-    });
+    // backgroundPlayer.on('error', function(error) {
+    //   console.log('error: ', error);
+    //   handlePlayerError()
+    // });
 
 
 
@@ -272,6 +262,9 @@
       fadeOutTime = setTimeout( function() {
         document.querySelectorAll('.content').forEach( function(section) {
           section.classList.remove('active');
+
+          
+
         });
       }, contentFadeOutDelay);
 
@@ -279,7 +272,8 @@
       if ( event.target.matches('[rel="enter-site"]') ) {
         console.log('enter-site-clicked');
         document.querySelector('.overlay').classList.add('fly-away');
-        backgroundPlayer.play();
+        document.body.classList.add('played');
+        // backgroundPlayer.play();
       }
 
       if ( event.target.matches('[rel="toggle-video"]') ) {
