@@ -10,37 +10,37 @@
  */
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
+if( !defined('ABSPATH') ) {
 	exit;
 }
 
 // module provides function only for the admin area
-if ( ! is_admin() ) {
+if( !is_admin() ) {
 	return;
 }
 
-if ( defined( 'FACTORY_BOOTSTRAP_426_LOADED' ) ) {
+if( defined('FACTORY_BOOTSTRAP_459_LOADED') ) {
 	return;
 }
 
-define( 'FACTORY_BOOTSTRAP_426_VERSION', '4.2.6' );
-define( 'FACTORY_BOOTSTRAP_426_LOADED', true );
+define('FACTORY_BOOTSTRAP_459_VERSION', '4.5.9');
+define('FACTORY_BOOTSTRAP_459_LOADED', true);
 
-if ( ! defined( 'FACTORY_FLAT_ADMIN' ) ) {
-	define( 'FACTORY_FLAT_ADMIN', true );
+if( !defined('FACTORY_FLAT_ADMIN') ) {
+	define('FACTORY_FLAT_ADMIN', true);
 }
 
-define( 'FACTORY_BOOTSTRAP_426_DIR', dirname( __FILE__ ) );
-define( 'FACTORY_BOOTSTRAP_426_URL', plugins_url( null, __FILE__ ) );
+define('FACTORY_BOOTSTRAP_459_DIR', dirname(__FILE__));
+define('FACTORY_BOOTSTRAP_459_URL', plugins_url(null, __FILE__));
 
-require_once( FACTORY_BOOTSTRAP_426_DIR . '/includes/functions.php' );
+require_once(FACTORY_BOOTSTRAP_459_DIR . '/includes/functions.php');
 
 /**
- * @param Wbcr_Factory425_Plugin $plugin
+ * @param Wbcr_Factory458_Plugin $plugin
  */
-add_action( 'wbcr_factory_bootstrap_426_plugin_created', function ( $plugin ) {
-	$manager = new Wbcr_FactoryBootstrap426_Manager( $plugin );
-	$plugin->setBootstap( $manager );
-} );
+add_action('wbcr_factory_bootstrap_459_plugin_created', function ($plugin) {
+	$manager = new Wbcr_FactoryBootstrap459_Manager($plugin);
+	$plugin->setBootstap($manager);
+});
 
 

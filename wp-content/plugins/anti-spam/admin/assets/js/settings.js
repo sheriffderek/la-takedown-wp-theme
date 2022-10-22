@@ -1,24 +1,32 @@
-/**
- * General scripts
- *
- * @author Alex Kovalev <alex.kovalevv@gmail.com>, Github: https://github.com/alexkovalevv
- * @copyright (c) 03.12.2019, CreativeMotion
- * @version 1.0
- */
+jQuery(document).ready(function ($) {
+    jQuery('#titan_scanner_schedule_daily').datetimepicker({
+        datepicker: false,
+        mask: true,
+        format: 'H:i'
+    });
+    jQuery('#titan_scanner_schedule_weekly_time').datetimepicker({
+        datepicker: false,
+        mask: true,
+        format: 'H:i'
+    });
+    jQuery('#titan_scanner_schedule_custom').datetimepicker({
+        dayOfWeekStart: 1,
+        timepicker: true,
+        mask: true,
+        format: 'Y/m/d H:i'
+    });
 
+    var schedule = jQuery('#titan_scanner_schedule').val();
+    jQuery('.wt-schedule-controls-' + schedule).show();
+    jQuery('#titan_scanner_schedule').on('change', function ($) {
+        var schedule = jQuery(this).val();
+        jQuery('.wt-schedule-controls').hide();
+        jQuery('.wt-schedule-controls-' + schedule).show();
+    });
 
-(function($) {
-	'use strict';
+    $('.factory-checkbox--disabled.wtitan-control-premium-label').click(function (e) {
+        e.stopPropagation();
+        window.location.href = 'https://titansitescanner.com/pricing/';
+    });
 
-	$.wantispam = {};
-
-	if( $.wbcr_factory_clearfy_217 ) {
-		$.wantispam = $.wbcr_factory_clearfy_217;
-	}
-
-	$('.factory-checkbox--disabled.wantispam-checkbox-premium-label').click(function(e) {
-		e.stopPropagation();
-		window.location.href = 'https://anti-spam.space/pricing/';
-	});
-
-})(jQuery);
+});

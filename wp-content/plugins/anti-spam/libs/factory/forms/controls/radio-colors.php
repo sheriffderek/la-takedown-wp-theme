@@ -27,9 +27,9 @@
 		exit;
 	}
 
-	if( !class_exists('Wbcr_FactoryForms423_RadioColorsControl') ) {
+	if( !class_exists('Wbcr_FactoryForms455_RadioColorsControl') ) {
 
-		class Wbcr_FactoryForms423_RadioColorsControl extends Wbcr_FactoryForms423_Control {
+		class Wbcr_FactoryForms455_RadioColorsControl extends Wbcr_FactoryForms455_Control {
 
 			public $type = 'radio-color';
 
@@ -102,7 +102,7 @@
 				<span class="factory-form-radio-item">
                 <lable class="factory-from-radio-label">
 	                <input type="radio" <?php $this->attrs() ?> value="<?php echo esc_attr($item[0]) ?>" <?php echo $checked ?>/>
-	                <span style="background-color:<?= esc_attr($item[1]) ?>"></span>
+	                <span style="background-color:<?php echo esc_attr($item[1]) ?>"></span>
                 </lable>
             </span>
 			<?php }

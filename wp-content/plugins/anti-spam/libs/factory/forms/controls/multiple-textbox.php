@@ -15,9 +15,9 @@
 		exit;
 	}
 
-	if( !class_exists('Wbcr_FactoryForms423_MultipleTextboxControl') ) {
+	if( !class_exists('Wbcr_FactoryForms455_MultipleTextboxControl') ) {
 
-		class Wbcr_FactoryForms423_MultipleTextboxControl extends Wbcr_FactoryForms423_Control {
+		class Wbcr_FactoryForms455_MultipleTextboxControl extends Wbcr_FactoryForms455_Control {
 
 			public $type = 'multiple-textbox';
 
@@ -75,7 +75,7 @@
 							<?php $counter = 0; ?>
 							<?php foreach($values as $value): ?>
 								<div class="factory-mtextbox-item">
-									<input value="<?= esc_attr($value) ?>"<?php $this->attrs() ?>/>
+									<input value="<?php echo esc_attr($value) ?>"<?php $this->attrs() ?>/>
 									<?php if( $counter >= 1 ): ?>
 										<button class="btn btn-default btn-small factory-mtextbox-remove-item">
 											<i class="fa fa-times" aria-hidden="true"></i></button>
@@ -86,7 +86,7 @@
 						<?php endif; ?>
 					</div>
 					<button class="btn btn-default btn-small factory-mtextbox-add-item">
-						<i class="fa fa-plus" aria-hidden="true"></i> <?php _e('Add new', 'wbcr_factory_forms_423') ?>
+						<i class="fa fa-plus" aria-hidden="true"></i> <?php _e('Add new', 'wbcr_factory_forms_455') ?>
 					</button>
 				</div>
 

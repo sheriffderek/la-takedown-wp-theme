@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-class Wbcr_Factory425_StyleList extends Wbcr_Factory425_AssetsList {
+class Wbcr_Factory458_StyleList extends Wbcr_Factory458_AssetsList {
 
 	/**
 	 * Adds new items to the collection (default place).

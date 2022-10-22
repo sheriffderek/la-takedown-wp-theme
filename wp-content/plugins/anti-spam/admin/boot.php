@@ -1,37 +1,105 @@
 <?php
 /**
- * Admin boot
+ * Usually in this file places the code that is responsible for the notification, compatibility with other plugins,
+ * minor functions that must be performed on all pages of the admin panel.
  *
- * @author        Alexander Kovalev <alex.kovalevv@gmail.com>, Github: https://github.com/alexkovalevv
- * @copyright     Webcraftic 22.10.2019
+ * This file should contain code that applies only to the administration area.
+ *
+ * @author    Webcraftic <wordpress.webraftic@gmail.com>
+ * @copyright Webcraftic 20.11.2019
+ * @version   1.0
  */
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) {
+if( !defined('ABSPATH') ) {
 	exit;
 }
 
-/*add_action('wantispam/factory/clearfy/check_license_success', function($action, $license_key){
-	if('activate' === $action || 'sync' === $action) {
+/**
+ * Widget with the offer to buy Clearfy Business
+ *
+ * @param array $widgets
+ * @param string $position
+ * @param Wbcr_Factory439_Plugin $plugin
+ */
 
+add_filter('wbcr/factory/pages/impressive/widgets', function ($widgets, $position, $plugin) {
+
+	if( $plugin->getPluginName() == \WBCR\Titan\Plugin::app()->getPluginName() ) {
+
+		if( \WBCR\Titan\Plugin::app()->premium->is_activate() ) {
+			unset($widgets['donate_widget']);
+
+			if( $position == 'right' ) {
+				unset($widgets['adverts_widget']);
+				unset($widgets['business_suggetion']);
+				unset($widgets['rating_widget']);
+				unset($widgets['info_widget']);
+			}
+
+			return $widgets;
+		} else {
+			if( $position == 'right' ) {
+				unset($widgets['business_suggetion']);
+				unset($widgets['info_widget']);
+				unset($widgets['rating_widget']);
+				$widgets['adverts_widget'] = wtitan_get_sidebar_adverts_widget();
+			}
+		}
 	}
-});*/
+
+	return $widgets;
+}, 9999, 3);
 
 /**
- * Виджет отзывов
- *
- * @param string $page_url
- * @param string $plugin_name
- *
- * @return string
+ * Этот хук реализует условную логику перенаправления на страницу мастера настроек,
+ * сразу после активации плагина.
  */
-add_filter( 'wbcr_factory_pages_425_imppage_rating_widget_url', function ( $page_url, $plugin_name ) {
-	if ( $plugin_name == \WBCR\Antispam\Plugin::app()->getPluginName() ) {
-		return 'https://wordpress.org/support/plugin/anti-spam/reviews/';
-	}
+add_action('admin_init', function () {
 
-	return $page_url;
-}, 10, 2 );
+	$plugin = \WBCR\Titan\Plugin::app();
+
+	// If the user has updated the plugin or activated it for the first time,
+	// you need to show the page "What's new?"
+	if( !$plugin->isNetworkAdmin() ) {
+		$setup_page_viewed = $plugin->request->get('wtitan_setup_page_viewed', null);
+		if( is_null($setup_page_viewed) ) {
+			if( \WBCR\Titan\Plugin\Helper::is_need_show_setup_page() ) {
+				try {
+					$redirect_url = '';
+					if( class_exists('Wbcr_FactoryPages457') ) {
+						$redirect_url = $plugin->getPluginPageUrl('setup', ['wtitan_setup_page_viewed' => 1]);
+					}
+					if( $redirect_url ) {
+						wp_safe_redirect($redirect_url);
+						die();
+					}
+				} catch( Exception $e ) {
+				}
+			}
+		} else {
+			if( \WBCR\Titan\Plugin\Helper::is_need_show_setup_page() ) {
+				delete_option($plugin->getOptionName('setup_wizard'));
+			}
+		}
+	}
+});
+
+/**
+ * Выводит кнопку настроек в шапке интерфейса плагина
+ */
+/*
+add_action( 'wbcr/factory/pages/impressive/header', function ( $plugin_name ) {
+	if ( $plugin_name != WBCR\Titan\Plugin::app()->getPluginName() ) {
+		return;
+	}
+	?>
+	<a href="<?php echo WBCR\Titan\Plugin::app()->getPluginPageUrl( 'plugin_settings' ) ?>" class="wbcr-factory-button wbcr-factory-type-settings">
+		<?php echo apply_filters( 'wbcr/clearfy/settings_button_title', __( 'Titan settings', 'titan-security' ) ); ?>
+	</a>
+	<?php
+} );
+*/
 
 /**
  * Print admin notice: "Would you like to send them for spam checking?"
@@ -39,17 +107,17 @@ add_filter( 'wbcr_factory_pages_425_imppage_rating_widget_url', function ( $page
  * If user clicked button "Yes, do it", plugin will exec action,
  * that put all unapproved comments to spam check queue.
  */
-add_action( 'wbcr/factory/admin_notices', function ( $notices, $plugin_name ) {
-	if ( $plugin_name != \WBCR\Antispam\Plugin::app()->getPluginName() ) {
+add_action('wbcr/factory/admin_notices', function ($notices, $plugin_name) {
+	if( $plugin_name != \WBCR\Titan\Plugin::app()->getPluginName() ) {
 		return $notices;
 	}
-	$review_link = "https://wordpress.org/support/plugin/anti-spam/reviews/";
-	$notice_text = sprintf( __( 'Hey, You\'ve using Anti-spam – that\'s awesome! Could you please do me a BIG favor and give it a 5-star rating on WordPress? Just to help us spread the word and boost our motivation! <a href="%s" target="_blank" rel="noopener">Review</a>', "anti-spam" ), $review_link );
+
+	$notice_text = sprintf(__('Maintenance, Security, Backups & Support for your WordPress Install. <a href="%s" target="_blank" rel="noopener">Now 49$/month!</a>', "titan-security"), 'https://cm-wp.com/wp-support/');
 
 	$notices[] = [
-		'id'              => 'wantispam_give_me_review',
-		'type'            => 'success',
-		'where'           => [
+		'id' => 'wtitan_creativemotion_support_suggestion',
+		'type' => 'success',
+		'where' => [
 			'edit-comments',
 			'plugins',
 			'themes',
@@ -57,84 +125,74 @@ add_action( 'wbcr/factory/admin_notices', function ( $notices, $plugin_name ) {
 			'edit',
 			'settings'
 		],
-		'dismissible'     => true,
+		'dismissible' => true,
 		'dismiss_expires' => 0,
-		'text'            => '<p><strong>Anti-spam:</strong><br>' . $notice_text . '</p>'
+		'text' => '<p><strong>Titan:</strong><br>' . $notice_text . '</p>'
 	];
 
 	return $notices;
-}, 10, 2 );
+}, 10, 2);
 
+//if ( ! \WBCR\Titan\Plugin::app()->getOption( 'trial_notice_dismissed', false ) ) {
 /**
- * Удаляем лишние виджеты из правого сайдбара в интерфейсе плагина
- *
- * - Виджет с премиум рекламой
- * - Виджет с рейтингом
- * - Виджет с маркерами информации
+ * Trial notice on plugin pages
  */
-add_filter( 'wbcr/factory/pages/impressive/widgets', function ( $widgets, $position, $plugin ) {
-	if ( \WBCR\Antispam\Plugin::app()->getPluginName() == $plugin->getPluginName() && 'right' == $position ) {
-		unset( $widgets['business_suggetion'] );
-		unset( $widgets['rating_widget'] );
-		unset( $widgets['info_widget'] );
-
-		if ( ! \WBCR\Antispam\Plugin::app()->premium->is_activate() ) {
-			$widgets['premium_suggetion'] = wantispam_get_sidebar_premium_widget();
-		}
-	}
-
-	return $widgets;
-}, 20, 3 );
-
-/**
- * Changes plugin title in plugin interface header
- */
-add_filter( 'wbcr/factory/pages/impressive/plugin_title', function ( $title, $plugin_name ) {
-	if ( \WBCR\Antispam\Plugin::app()->getPluginName() == $plugin_name ) {
-		return __( 'Anti-spam', 'realforce' );
-	}
-
-	return $title;
-}, 20, 2 );
-
-/**
- * Инициализации метабоксов и страницы "о плагине".
- *
- * Этот хук реализует условную логику, при которой пользователь переодически будет
- * видет страницу "О плагине", а конкретно при активации и обновлении плагина.
- */
-/*add_action( 'admin_init', function () {
-	if ( ! current_user_can( 'manage_option' ) ) {
+//add_action('wbcr/factory/pages/impressive/print_all_notices', function ($plugin, $obj) {
+/*	if( is_plugin_active('plugins-scanner-premium/plugins-scanner-premium.php') || ($plugin->getPluginName() != \WBCR\Titan\Plugin::app()->getPluginName()) ) {
 		return;
 	}
 
-	$plugin = \WBCR\Antispam\Plugin::app();
+	$notice_text = __('Plugins scanner - detect vulnerabilities in any of your plugins before activation', 'titan-security');
+	$notice_text .= '&nbsp;<a href="https://titansitescanner.com/plugin-scanner/" target="_blank" rel="noopener" class="wtitan-get-plugins-scanner__btn">' . __('Sign Up for $9.99', 'titan-security') . '</a>';
 
-	// If the user has updated the plugin or activated it for the first time,
-	// you need to show the page "What's new?"
-	//-------------------------
-	$about_page_viewed = $plugin->request->get( 'wantispam_about_page_viewed', null );
+	echo '<div class="alert alert-warning wbcr-factory-warning-notice wtitan-get-plugins-scanner__notice"><p><span class="dashicons dashicons-plugins-checked"></span> ' . $notice_text . '</p></div>';
+	*///$obj->printWarningNotice($notice_text);
 
-	if ( is_null( $about_page_viewed ) ) {
-		if ( wantispam_is_need_show_about_page() ) {
-			try {
-				$redirect_url = $plugin->getPluginPageUrl( 'about', [ 'wantispam_about_page_viewed' => 1 ] );
+/** @var \Wbcr_Factory458_Plugin $plugin */
+/** @var \Wbcr_FactoryPages457_ImpressiveThemplate $obj */
+/*if ( ( \WBCR\Titan\Plugin::app()->premium->is_activate() ) || ( $plugin->getPluginName() != \WBCR\Titan\Plugin::app()->getPluginName() ) || $obj->id == 'license' ) {
+	return;
+}
 
-				if ( $redirect_url ) {
-					wp_safe_redirect( $redirect_url );
-					die();
-				}
-			} catch( Exception $e ) {
-			}
-		}
-	} else {
-		if ( wantispam_is_need_show_about_page() ) {
-			if ( $plugin->isNetworkAdmin() ) {
-				delete_site_option( $plugin->getOptionName( 'what_is_new_64' ) );
-			} else {
-				delete_option( $plugin->getOptionName( 'what_is_new_64' ) );
-			}
-		}
+$notice_text = __( 'Get the free trial edition (no credit card) contains all of the features included in the paid-for version of the product.', 'titan-security' );
+$notice_text .= '&nbsp;<a href="' . add_query_arg( [ 'trial' => 1 ], \WBCR\Titan\Plugin::app()->getPluginPageUrl( 'license' ) ) . '" class="btn btn-gold btn-sm wt-notice-trial-button">' . __( 'Activate 30 days trial', 'titan-security' ) . '</a>';
+$notice_text .= "<span id='wt-notice-hide-link' class='wt-notice-hide-link dashicons dashicons-no'></span>";
+$obj->printWarningNotice( $notice_text );*/
+//}, 10, 2);
+
+/**
+ * Trial notice on all WP admin pages
+ */
+/* add_action( "wbcr/factory/admin_notices", function ( $notices, $plugin_name )
+{
+	if ( ( \WBCR\Titan\Plugin::app()->premium->is_activate() ) || ( $plugin_name != \WBCR\Titan\Plugin::app()->getPluginName() ) || ! current_user_can( 'manage_options' ) ) {
+		return $notices;
 	}
-} );*/
+
+	$notice_text = __( 'Get the free trial edition (no credit card) contains all of the features included in the paid-for version of the product.', 'titan-security' );
+	$notice_text .= '&nbsp;<a href="' . add_query_arg( [ 'trial' => 1 ], \WBCR\Titan\Plugin::app()->getPluginPageUrl( 'license' ) ) . '" class="button button-primary">' . __( 'Activate 30 days trial', 'titan-security' ) . '</a>';
+	$notices[]   = [
+		'id'              => 'get_trial_for_' . \WBCR\Titan\Plugin::app()->getPluginName(),
+		'type'            => 'info',
+		'dismissible'     => true,
+		'dismiss_expires' => 0,
+		'text'            => "<p><b>" . \WBCR\Titan\Plugin::app()->getPluginTitle() . ":</b> " . $notice_text . '</p>'
+	];
+
+	return $notices;
+}, 10, 2 ); */
+//}
+
+// Vulner class
+require_once WTITAN_PLUGIN_DIR . "/includes/vulnerabilities/boot.php";
+// Audit class
+require_once WTITAN_PLUGIN_DIR . "/includes/audit/boot.php";
+// SiteChecker class
+require_once WTITAN_PLUGIN_DIR . "/includes/sitechecker/boot.php";
+// Scanner class
+require_once WTITAN_PLUGIN_DIR . "/includes/scanner/boot.php";
+// Anti-spam class
+require_once WTITAN_PLUGIN_DIR . "/includes/antispam/boot.php";
+// Audit class
+require_once WTITAN_PLUGIN_DIR . "/includes/check/boot.php";
 

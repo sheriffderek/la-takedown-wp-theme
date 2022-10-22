@@ -1,6 +1,6 @@
 <?php
 
-namespace WBCR\Logger;
+namespace WBCR\Titan\Logger;
 
 /**
  * Prepares export files, ZIPs them and allows to download the package.
@@ -25,7 +25,7 @@ class Export {
 	/**
 	 * @var string Default archive name on download. {datetime} will be replaced with current m-d-Y.
 	 */
-	private $_archive_name = 'wio_export-{datetime}.zip';
+	private $_archive_name = 'titan_debug-{datetime}.zip';
 
 	/**
 	 * @var string|null Archive save path.
@@ -51,17 +51,17 @@ class Export {
 	public function prepare() {
 
 		if ( ! class_exists( '\ZipArchive' ) ) {
-			\WBCR\Logger\Writter::error( 'App does not have \ZipArchive class available. It is not possible to prepare export' );
+			\WBCR\Titan\Logger\Writter::error( 'App does not have \ZipArchive class available. It is not possible to prepare export' );
 
 			return false;
 		}
 
 		$zip = new \ZipArchive();
 
-		$log_base_dir = \WBCR\Logger\Writter::get_base_dir();
+		$log_base_dir = \WBCR\Titan\Logger\Writter::get_base_dir();
 
 		if ( $log_base_dir === false ) {
-			\WBCR\Logger\Writter::error( sprintf( 'Failed to get log path %s', $log_base_dir ) );
+			\WBCR\Titan\Logger\Writter::error( sprintf( 'Failed to get log path %s', $log_base_dir ) );
 
 			return false;
 		}
@@ -69,17 +69,17 @@ class Export {
 		$uploads = wp_get_upload_dir();
 
 		if ( isset( $uploads['error'] ) && $uploads['error'] !== false ) {
-			\WBCR\Logger\Writter::error( 'Unable to get save path of ZIP archive from wp_get_upload_dir()' );
+			\WBCR\Titan\Logger\Writter::error( 'Unable to get save path of ZIP archive from wp_get_upload_dir()' );
 
 			return false;
 		}
 
 		$save_base_path   = isset( $uploads['basedir'] ) ? $uploads['basedir'] : null;
-		$zip_archive_name = sprintf( "antispam_debug_report-%s.zip", date( 'Y-m-d' ) );
+		$zip_archive_name = sprintf( "titan_debug_report-%s.zip", date( 'Y-m-d' ) );
 		$zip_save_path    = $save_base_path . DIRECTORY_SEPARATOR . $zip_archive_name;
 
 		if ( ! $zip->open( $zip_save_path, \ZipArchive::CREATE ) ) {
-			\WBCR\Logger\Writter::error( sprintf( 'Failed to created ZIP archive in path %s. Skipping export...', $zip_save_path ) );
+			\WBCR\Titan\Logger\Writter::error( sprintf( 'Failed to created ZIP archive in path %s. Skipping export...', $zip_save_path ) );
 
 			return false;
 		}
@@ -91,7 +91,7 @@ class Export {
 		if ( ! empty( $log_files ) ) {
 			foreach ( $log_files as $file ) {
 				if ( ! $zip->addFile( $file, wp_basename( $file ) ) ) {
-					\WBCR\Logger\Writter::error( sprintf( 'Failed to add %s to %s archive. Skipping it.', $file, $zip_save_path ) );
+					\WBCR\Titan\Logger\Writter::error( sprintf( 'Failed to add %s to %s archive. Skipping it.', $file, $zip_save_path ) );
 
 					return false;
 				}
@@ -101,19 +101,19 @@ class Export {
 		$system_info = $this->prepare_system_info();
 
 		if ( ! empty( $system_info ) ) {
-			$system_info_file_name = 'wrio-system-info.txt';
+			$system_info_file_name = 'titan-system-info.txt';
 			$system_info_path      = $save_base_path . DIRECTORY_SEPARATOR . $system_info_file_name;
 			if ( false !== @file_put_contents( $system_info_path, $system_info ) ) {
 				if ( ! $zip->addFile( $system_info_path, $system_info_file_name ) ) {
-					\WBCR\Logger\Writter::error( sprintf( 'Failed to add %s to %s archive. Skipping it.', $system_info_file_name, $system_info_path ) );
+					\WBCR\Titan\Logger\Writter::error( sprintf( 'Failed to add %s to %s archive. Skipping it.', $system_info_file_name, $system_info_path ) );
 				}
 			} else {
-				\WBCR\Logger\Writter::error( sprintf( 'Failed to save %s in %s', $system_info_file_name, $zip_save_path ) );
+				\WBCR\Titan\Logger\Writter::error( sprintf( 'Failed to save %s in %s', $system_info_file_name, $zip_save_path ) );
 			}
 		}
 
 		if ( ! $zip->close() ) {
-			\WBCR\Logger\Writter::error( sprintf( 'Failed to close ZIP archive %s for unknown reason. \ZipArchive::close() failed.' ) );
+			\WBCR\Titan\Logger\Writter::error( sprintf( 'Failed to close ZIP archive %s for unknown reason. \ZipArchive::close() failed.' ) );
 		}
 
 		if ( isset( $system_info_path ) ) {
@@ -136,7 +136,7 @@ class Export {
 		$space = PHP_EOL . PHP_EOL;
 		$nl    = PHP_EOL;
 
-		$report = 'Plugin version: ' . \WBCR\Antispam\Plugin::app()->getPluginVersion() . $nl;
+		$report = 'Plugin version: ' . \WBCR\Titan\Plugin::app()->getPluginVersion() . $nl;
 
 		global $wp_version;
 
@@ -191,7 +191,7 @@ class Export {
 	 *
 	 * Additionally it cleans-up by deleting the archive if `$and_delete` set to true.
 	 *
-	 * @param bool $should_clean_up   Allows to delete temp ZIP archive if required.
+	 * @param bool $should_clean_up Allows to delete temp ZIP archive if required.
 	 *
 	 * @return bool
 	 */
@@ -206,7 +206,7 @@ class Export {
 		$zip_content = @file_get_contents( $zip_save_path );
 
 		if ( $zip_save_path === false ) {
-			\WBCR\Logger\Writter::error( sprintf( 'Failed to get ZIP %s content as file_get_contents() returned false', $zip_save_path ) );
+			\WBCR\Titan\Logger\Writter::error( sprintf( 'Failed to get ZIP %s content as file_get_contents() returned false', $zip_save_path ) );
 
 			return false;
 		}

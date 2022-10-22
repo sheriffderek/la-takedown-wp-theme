@@ -12,8 +12,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
-		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><br /></div>
-		<h3 class="hndle" id="config_menu"><?php esc_attr_e( 'Menu Options', 'adminimize' ); ?></h3>
+		<h3 class="hndle ui-sortable-handle" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>" id="config_menu"><?php esc_attr_e( 'Menu Options', 'adminimize' ); ?></h3>
 
 		<div class="inside">
 			<br class="clear" />
@@ -22,6 +21,9 @@ if ( ! function_exists( 'add_action' ) ) {
 				<colgroup>
 					<?php
 					$col = 0;
+					if ( ! isset( $user_roles_names ) ) {
+						$user_roles_names = _mw_adminimize_get_all_user_roles_names();
+					}
 					foreach ( $user_roles_names as $role_name ) {
 						echo '<col class="col' . $col . '">' . "\n";
 						$col ++;
@@ -41,6 +43,9 @@ if ( ! function_exists( 'add_action' ) ) {
 				<tr>
 					<td><?php esc_attr_e( 'Select all', 'adminimize' ); ?></td>
 					<?php
+					if ( ! isset( $user_roles ) ) {
+						$user_roles = _mw_adminimize_get_all_user_roles();
+					}
 					foreach ( $user_roles as $role_slug ) {
 						echo '<td class="num">';
 						echo '<span class="form-invalid">';
@@ -55,22 +60,19 @@ if ( ! function_exists( 'add_action' ) ) {
 				</thead>
 				<tbody>
 				<?php
+				global $menu, $submenu;
 				$wp_menu    = (array) _mw_adminimize_get_option_value( 'mw_adminimize_default_menu' );
 				$wp_submenu = (array) _mw_adminimize_get_option_value( 'mw_adminimize_default_submenu' );
 
-				// Object to array
+				// Object to array.
 				if ( is_object( $wp_submenu ) ) {
 					$wp_submenu = get_object_vars( $wp_submenu );
 				}
 
 				if ( ! isset( $wp_menu ) || empty( $wp_menu ) ) {
-					global $menu;
-
-					$wp_menu = (array) $menu;
+					$wp_menu = $menu;
 				}
 				if ( ! isset( $wp_submenu ) || empty( $wp_submenu ) ) {
-					global $submenu;
-
 					$wp_submenu = $submenu;
 				}
 
@@ -118,7 +120,7 @@ if ( ! function_exists( 'add_action' ) ) {
 									'After activation of this checkbox you will loose the easy access to the settings area inside the menu.', 'adminimize'
 								) . '" style="cursor:pointer;"> ! </acronym>';
 						} else {
-							
+
 							$disabled_item_adm_hint = '';
 						}
 
@@ -188,17 +190,21 @@ if ( ! function_exists( 'add_action' ) ) {
 
 							// Loop about Sub Menu items.
 							foreach ( $wp_submenu[ $menu_slug ] as $subkey => $subitem ) {
+
+								// @see https://github.com/bueltge/adminimize/issues/116
+								if ( is_object( $subitem ) ) {
+									$subitem = json_decode( json_encode( $subitem ), true );
+								}
+
 								$submenu_slug = $subitem[ 2 ];
 
 								// Special solutions for the Adminimize link, that it not works on settings site.
 								if ( strtolower( $submenu_slug ) === 'adminimize/adminimize.php' ) {
 									//$disabled_subitem_adm = ' disabled="disabled"';
-									$disabled_subitem_adm_hint = '<abbr title="'
-									                             . esc_attr__(
-										                             'After activate the checkbox you will loose its easy access in the menu.',
-										                             'adminimize'
-									                             )
-									                             . '" style="cursor:pointer;"> ! </acronym>';
+									$disabled_subitem_adm_hint = '<abbr title="' . esc_attr__(
+										'After activate the checkbox you will loose its easy access in the menu.',
+										'adminimize'
+									) . '" style="cursor:pointer;"> ! </acronym>';
 								} else {
 									$disabled_subitem_adm      = '';
 									$disabled_subitem_adm_hint = '';

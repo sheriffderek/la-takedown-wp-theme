@@ -1,55 +1,119 @@
-=== Anti-spam ===
+=== Titan Anti-spam & Security ===
 Contributors: creativemotion
-Tags: antispam, spam, protection, comments, comment, antispam, anti-spam, block-spam, spam-free, spambot, spam-bot, bot
-Requires at least: 4.9
-Tested up to: 5.3
-Requires PHP: 5.6
+Tags: antispam, firewall, malware scanner, security, antivirus, firewall, malware, scan, spam
+Requires at least: 5.2
+Tested up to: 6.0
+Requires PHP: 7.0
 Stable tag: trunk
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
-Anti-spam plugin blocks automatic spam in comments section. No captcha.
+Anti-spam, Site Security Check & Malware Scanner.
 
 == Description ==
-= Anti-spam checks your comments against our global database, Once comments are checked on the spam database, a self-learning neural network re-checks unfiltered comments, of spam to prevent your site from publishing malicious content. =
+Titan includes anti-spam, firewall, malware scanner, site accessibility checking, security and threats audits for WordPress websites. Our security functions provide Titan with the latest firewall rules, malware signatures, and database of malicious IP addresses - all you need to ensure the security of your website.
 
-### Features ###
-* Imperceptible spam protection on your site helps you give visitors a convenient and easy way to create an account or post a comment. You'll be able to get growth of comments, registrations and increase conversion rates. Have a think about the user experience of your product because users do not like to fill out the captcha.
-* Simple installation and easy to use - no need to change the code or study instructions. Connecting the site to the service takes less than a minute, just install anti-spam plugins and your website is protected.
-* We have created algorithms to ensure reliability and accuracy against spam bots. It will save your time and resources, allowing you to focus on developing and improving your website and business. Antispam provides logs of all the processed requests that allows you to check the results of spam filters. Regular analysis of parameters allows you to find new spam patterns of behavior.
-* A comment posted by a user appears on the site right away. The background check marks spam comments as spam and does not display them on a site. This helps to avoid user disturbance and increase engagement.
-* One of the distinctive features of the AntiSpam PRO is the ability to check the already existing comments and users for spam. Comment spam checker with a few of the checks by spam activity of IP and email on date and time, check for spam links and text of messages.* Anti-spam plugin is GDPR compliant and does not store any other user data except of the behavior mentioned above.
-* We provide 24/7 technical support, giving you an assurance that you will get a quick response, decision or advice on all your questions. It is our pleasure to be of service to you, don’t hesitate to let us know if you have any questions or comments. Customer support is one of our top priority. We’re here to help you acquire the best experience with AntiSpam service.
-* For more info visit [anti-spam.space](https://anti-spam.space/)
+Titan is a comprehensive WordPress security solution, completed by a set of additional features as add-ons, which was placed into a simple and intuitive interface.
 
+**Why did we update Anti-Spam and what is Titan?**
 
-### PRO Version ###
-To maintain the free version and provide prompt, effective &amp; free support, we offer the Pro version. 
-In the Pro version, you can:
-* To identify and block spam bots AntiSpamPro uses a series of tests, invisible to the visitor of the website. This allows 100% protection from spam bots to be provided, without the need to install extra protection.
-* Technical Support 24/7 to help you use the anti-spam service. If you have specific needs, you can contact our AntiSpam Pro customer support team at any time, day or night. We strive to answer all emails within 12 hours, and most are answered in substantially less time.
-* Antispam Pro a transparent anti-spam protection. We provide detailed statistics of all entered comments and logins. You can always be sure that there are no errors. We have developed a mobile app for you to see anti-spam statistics, wherever and whenever.
+Let me tell you before we start: your favorite Anti-Spam had not disappeared! Instead of that it revived and became stronger to stand guard over the secure of your site!
+The latest update of Anti-Spam is called Titan Anti-spam & Security and represents the brand new version of a plugin.
+
+**Why TITAN?**
+
+We aim to create a plugin as reliable as this metal - and easy-to-use at the same time. The new name of our plugin sets the pace with newest and highest standards of quality.
+
+What has been changed except the name?
+Whilst the process of modernization we had to take some complicated decisions. One of them was:
+What should we do: keep Anti-Spam like a simple plugin with the only one function or complicate it with a huge complex of tools made for the security of your site?
+Constant feedback from users and versatile development experience lets us claim that the situation when there is too many tools couldn’t exist!
+We considered all possibilities thoroughly to secure the best future for the plugin.
+Let me introduce new secure functionality that was developed with spending a lot of time, effort and consideration:
+
+## Features ##
+
+== ANTI-SPAM ==
+ANTI-SPAM CHECKS YOUR COMMENTS THROUGH OUR GLOBAL SPAM DATABASE, THEN A SELF-LEARNING NEURAL NETWORK RE-CHECKS UNFILTERED COMMENTS, TO PREVENT YOUR SITE FROM PUBLISHING MALICIOUS CONTENT.
+
+* No captcha.
+* We have created algorithms to ensure reliability and accuracy against spam bots. It will save your time and resources, allowing you to focus on developing and improving your website and business. Antispam provides logs of all the processed requests that allows you to check the spam filters results. Regular analysis of parameters allows you to find new spam behavior patterns.
+* A comment posted by a user appears on the site right away. The background check marks spam comments as spam and hides them on a site. This helps to improve user experience and increase engagement.
+* [PRO] Checking the already existing comments and users for spam.
+* [PRO] We provide 24/7 technical support.
+* [PRO] To identify and block spam bots AntiSpamPro uses a series of tests running in the background, totally transparent to the website User. It allows 100% protection from spam bots No extra protection needed.
+* [PRO] Anti-spam is a comprehensive and transparent anti-spam protection. We provide detailed statistics of all logged comments and logins. You can always be sure that there are no errors.
+* [PRO]  Protect Register Form.
+* [PRO] Advanced protection of comment forms.
 * We regularly release updates to the anti-spam module. Our modules always meet new versions of CMS and we are constantly expanding supported CMS.
 
-New 6.6 Release of our plugin
-* Firewall (WAF)
-Antispam includes a Web Application Firewall (WAF) that identifies and blocks malicious traffic. It runs at the endpoint, enabling deep integration with WordPress. Unlike cloud alternatives it does not break encryption, cannot be bypassed and cannot leak data. 
-* Malware scanner
-An integrated malware scanner blocks requests that include malicious code or content. Defends against brute force attacks by limiting login attempts, enforcing strong passwords and other login security measures.
-* Real-time IP Blacklist
-Real-time IP Blacklist, which blocks all requests from the most malicious IPs, protecting your site while reducing load.
-* WordPress Security Scanner
-The scanner checks core files, themes and plugins for malware, bad URLs, backdoors, SEO spam, malicious redirects and code injections. 
-* Repier Files
-It also compares your files with what is in the WordPress.org repository, checking their integrity and reporting any changes to you.Repair files that have changed by overwriting them with a pristine, original version and easily delete any files that don't belong.
-* Detect Malicious Code in WordPress Themes and Plugins
-It also checks your site for known security vulnerabilities, abandoned and closed plugins. Content safety checks ensure that your files, posts and comments don't contain dangerous URLs or suspicious content. 
+== WORDPRESS FIREWALL ==
+The web application firewall detects and blocks malicious traffic. It protects your website at the endpoint by providing deep integration with WordPress. In contrast to cloud alternatives, it does not violate encryption, cannot be bypassed and does not contribute to data leakage.
 
+* Protection brute force  attacks by restricting login attempts.
+* [PRO] Update real-time firewall rules and malware signatures through the threat protection channel.
+* [PRO] Real-time IP Block List blocks all requests from malicious IP addresses, protecting your site and reducing load.
+* [PRO] An integrated malware scanner blocks requests containing malicious code or content.
+* [PRO] Using the Attack Log you can track visits and hacking attempts that are not shown in other analytic packages in real time; including origin, IP address, current time, and time spent on your site.
+* [PRO] Block intruders by IP address or create advanced rules based on a range of IP addresses, hostname, user agent, and referrer.
+
+== WORDPRESS SECURITY SCANNER ==
+* The malware scanner checks the system files, themes and plugins for malware, invalid URLs, backdoors, SEO spam, malicious redirects and code injections.
+* Basic scanning using more than 1000 signatures.
+* [PRO] Advanced scanning with more than 6000 signatures.
+* [PRO] Configure three scan speeds to make sure the performance is not affected.
+* [PRO] Set scan schedules - daily, monthly, and manually.
+* [PRO] Update malware signatures in real time through a threat protection channel.
+* Compares your system, themes and plugins with those which are in the WordPress.org repository, checking their integrity and informing you of all changes.
+* Recover modified files by overwriting them with the original version.
+* Delete unknown and unwanted files easily via the Titan interface.
+* Checks your site for vulnerabilities and notifies in case of any problems or discrepancies. It also provides a notification of potential security issues when the plugin has been closed or inactivated.
+* Checks the content security by scanning the contents of files, messages and comments for dangerous URLs and suspicious content.
+
+== SITE CHECKER [PRO] ==
+* Check the availability of any URL
+* Push notifications in the browser to show URLs access issues in real time.
+Your browser will receive push notifications if one of the URLS is unavailable.
+
+== TWEAKS ==
+* Strong Password Requirement
+* Hide author login
+* Hide WordPress versions. WordPress itself and many plugins show their version at the visible areas of your site. An attacker who received this information may be aware of the vulnerabilities found in the version of the WordPress core or plugins.
+
+== Translations ==
+
+<ul>
+<li>English (default), always included</li>
+<li>Korean — big thanks to @cansmile</li>
+<li>Spanish (Venezuela) — big thanks to @yordansoares, @nobnob, @bragnieljimenez</li>
+<li>Spanish (Spain) — big thanks to @garridinsi, @nobnob, @nobnob, @nilovelez, @fernandot</li>
+<li>Italian — big thanks to @deadpool76</li>
+<li>Persian — big thanks to @1farakav</li>
+<li>Arabic — big thanks to @alzintani</li>
+<li>Swedish — big thanks to @elbogen </li>
+<li>Tibetan — big thanks to @bumpagyal </li>
+<li>Albanian — big thanks to @besnik </li>
+<li>Dutch — big thanks to @robelia </li>
+</ul>
+<p>We are very need for your help with <a href="https://translate.wordpress.org/projects/wp-plugins/anti-spam/" rel="nofollow ugc">translating the
+Titan Anti-spam & Security plugin</a> into your native language. We want to make it international and understandable for everyone. Please contact us via email inside the plugin, or create a topic on our <a href="https://wordpress.org/support/plugin/anti-spam/">support forum</a> if you can help with the translations. In exchange for your help, we will give you better support and our premium plugins absolutely free!</p>
+
+== Screenshots ==
+1. Dashboard
+2. General Settings
+3. Anti-spam Settings
+4. Web Application Firewall (WAF)
+5. Site Checker
+6. Tweaks
+7. Error Log
+8. License
 
 == Installation ==
 
 1. Install and activate the plugin on the Plugins page
 2. Enjoy life without spam in comments
+
+For more info visit  [titansitescanner.com](https://titansitescanner.com/)
 
 == Frequently Asked Questions ==
 
@@ -124,12 +188,93 @@ If site has caching plugin enabled and cache is not cleared or if theme does not
 and there is no plugin inputs in comments form - plugin tries to add hidden fields automatically using JavaScript.
 
 = Not enough information about the plugin? =
-
+two
 You may check out the [source code of the plugin](http://plugins.trac.wordpress.org/browser/anti-spam/trunk/anti-spam.php).
 The plugin is pretty small and easy to read.
 
-
 == Changelog ==
+7.3.2 – 10.09.2022
+* Added: Compatibility with the new version of the premium plugin
+* Fixed: Minor bugs
+
+7.3.1 – 02.08.2022
+Added: Compatibility with WordPress 6.0
+Fixed: Minor bugs
+
+7.3.0 – 07.04.2022
+Added: Compatibility with WordPress 5.9
+Fixed: Minor bugs
+
+7.2.9
+* Fixed: API errors
+
+7.2.8
+* Compatibility WP 5.8
+* Update components
+
+7.2.7 – 12.03.2021
+* Added: Backup system (PRO)
+
+7.2.6 – 12.03.2021
+* Fixed: Minor bugs
+
+7.2.5 – 13.01.2021
+* Fixed: Minor bugs
+
+7.2.4 – 12.01.2021
+* Fixed: Fatal error after activate/update
+
+7.2.3 – 12.01.2021
+* Added: Support php 8
+* Fixed: Minor bugs
+
+= 7.2.1 =
+* Added: Subscribe form
+* Improved: Compatibility with Wordpress 5.6
+* Fixed: Minor bugs
+
+= 7.1.6 =
+* Added: Setup wizard
+* Improved: Compatibility with Wordpress 5.5
+
+= 7.1.6 =
+* Fixed: jQuery.fn.load() and other bugs after update to Wordpress 5.5
+
+= 7.1.5 =
+* Added: Two-Factor authentication [PRO]
+
+= 7.1.4 - 22.06.2020 =
+* Updated: translations
+
+= 7.1.3 - 19.06.2020 =
+* Added notice in the plugin interface
+* Fixed: Minor bugs
+
+= 7.1.2 - 16.06.2020 =
+* Added: options search in the plugin interface. You can enter the option name, the plugin will automatically redirect you to the desired page where the option is located.
+* Removed: trial for the premium plugin
+* Updated: main navigation menu.
+* Added: compatibiliy with a new premium addons.
+* Fixed: Minor bugs
+
+= 7.0.3 - 20.05.2020 =
+* Added an option to send a weekly security digest to admin email.
+* Fixed: Minor bugs
+
+= 7.0.2 - 30.04.2020 =
+* Add COMPONENTS tab
+* Fixed: Minor bugs
+
+= 7.0.1 - 17.04.2020 =
+* The Htts warning notice has been hidden
+
+= 7.0.0 - 17.04.2020  =
+* Add wordpress firewall [PRO]
+* Add malware scanner
+* Add security audit
+* Add security tweaks
+* Add site checker [PRO]
+
 = 6.5.4 - 24.01.2020 =
 * Fixed: Minor bugs.
 * Fixed: Compatibility Anti-spam Pro.

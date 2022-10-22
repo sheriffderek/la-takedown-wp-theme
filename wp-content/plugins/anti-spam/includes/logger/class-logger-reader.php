@@ -1,6 +1,6 @@
 <?php
 
-namespace WBCR\Logger;
+namespace WBCR\Titan\Logger;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,9 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @author        Alexander Teshabaev <sasha.tesh@gmail.com>
  * @author        Alexander Kovalev <alex.kovalevv@gmail.com>, Github: https://github.com/alexkovalevv
- * @see           \WBCR\Logger\Writter::get_content() for method which is used to get file content.
+ * @see           \WBCR\Titan\Logger\Writter::get_content() for method which is used to get file content.
  *
- * @see           \WBCR\Logger\Writter for further information about logging.
+ * @see           \WBCR\Titan\Logger\Writter for further information about logging.
  */
 class Reader {
 
@@ -28,10 +28,10 @@ class Reader {
 	 * Prettify log content.
 	 *
 	 * @return bool|mixed|string
-	 * @see \WBCR\Logger\Writter::get_content()
+	 * @see \WBCR\Titan\Logger\Writter::get_content()
 	 */
 	public static function prettify() {
-		$content = \WBCR\Logger\Writter::get_content();
+		$content = \WBCR\Titan\Logger\Writter::get_content();
 
 		$search = [
 			"\r\n",
@@ -54,10 +54,10 @@ class Reader {
 		$content = str_replace( $search, $replacement, $content );
 
 		$color_map = [
-			\WBCR\Logger\Writter::LEVEL_INFO    => [ 'color' => '#fff', 'bg' => '#52d130' ],
-			\WBCR\Logger\Writter::LEVEL_ERROR   => [ 'color' => '#fff', 'bg' => '#ff5e5e' ],
-			\WBCR\Logger\Writter::LEVEL_WARNING => [ 'color' => '#fff', 'bg' => '#ef910a' ],
-			\WBCR\Logger\Writter::LEVEL_DEBUG   => [ 'color' => '#fff', 'bg' => '#8f8d8b' ],
+			\WBCR\Titan\Logger\Writter::LEVEL_INFO    => [ 'color' => '#fff', 'bg' => '#52d130' ],
+			\WBCR\Titan\Logger\Writter::LEVEL_ERROR   => [ 'color' => '#fff', 'bg' => '#ff5e5e' ],
+			\WBCR\Titan\Logger\Writter::LEVEL_WARNING => [ 'color' => '#fff', 'bg' => '#ef910a' ],
+			\WBCR\Titan\Logger\Writter::LEVEL_DEBUG   => [ 'color' => '#fff', 'bg' => '#8f8d8b' ],
 		];
 
 		/**

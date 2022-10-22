@@ -15,8 +15,7 @@ if ( ! function_exists( 'add_action' ) ) {
 
 <div id="poststuff" class="ui-sortable meta-box-sortables">
 	<div class="postbox">
-		<div class="handlediv" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><br/></div>
-		<h3 class="hndle" id="backend_options"><?php esc_attr_e( 'Backend Options', 'adminimize' ); ?></h3>
+		<h3 class="hndle ui-sortable-handle" id="backend_options" title="<?php esc_attr_e( 'Click to toggle', 'adminimize' ); ?>"><?php esc_attr_e( 'Backend Options', 'adminimize' ); ?></h3>
 		<div class="inside">
 
 
@@ -407,14 +406,7 @@ if ( ! function_exists( 'add_action' ) ) {
 							</label>
 							<br>
 							<label for="_mw_adminimize_db_redirect_txt"></label>
-							<textarea style="width: 85%;" class="code" rows="1" cols="60"
-							          name="_mw_adminimize_db_redirect_txt" id="_mw_adminimize_db_redirect_txt">
-							<?php
-							echo htmlspecialchars(
-								stripslashes( _mw_adminimize_get_option_value( '_mw_adminimize_db_redirect_txt' ) )
-							);
-							?>
-							</textarea>
+							<textarea style="width: 85%;" class="code" rows="1" cols="60" name="_mw_adminimize_db_redirect_txt" id="_mw_adminimize_db_redirect_txt"><?php echo htmlspecialchars( stripslashes( _mw_adminimize_get_option_value( '_mw_adminimize_db_redirect_txt' ) ) ); ?></textarea>
 							<br/>
 							<?php
 							esc_attr_e(

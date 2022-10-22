@@ -56,7 +56,7 @@ class Sender {
 			throw new \Exception( __( '$_POST[\'batch\'] is empty.', 'wp-migrate-db' ) );
 		}
 
-		$batch = filter_var( $_POST['batch'], FILTER_SANITIZE_STRING );
+		$batch = filter_var( $_POST['batch'], FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 		$batch = unserialize( str_rot13( base64_decode( $batch ) ) );
 
 		if ( ! $batch || ! \is_array( $batch ) ) {
@@ -78,20 +78,6 @@ class Sender {
 
 		fclose( $handle );
 		exit;
-	}
-
-	protected function print_vars( $vars, $encode = true ) {
-		foreach ( $vars as $key => $val ) {
-			$this->print_var( $key, $val, $encode );
-		}
-	}
-
-	protected function print_var( $key, $val, $encode = true ) {
-		if ( $encode ) {
-			$key .= '-encoded';
-			$val = base64_encode( $val );
-		}
-		echo "[$key]$val\n";
 	}
 
 	protected function print_end() {
