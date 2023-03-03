@@ -1,7 +1,7 @@
 
 
 <?php
-  $recordId = 20255;
+  $recordId = 20321;
 
   $largeCover = get_field('record_cover_large', $recordId)["url"];
   // $smallCover = get_field('record_cover_small', $recordId)["url"];
@@ -25,11 +25,16 @@
   <iframe id='video-outlet' allow='autoplay' src='https://player.vimeo.com/video/400744064?controls=false&loop=true' width='640' height='480' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </video-background>
  -->
-
+<section class='new-album-cover'>
+    <picture>
+      <img src="https://ucarecdn.com/52c4a846-8d49-4f2d-a820-5ba73ce6f1b1/-/preview/938x432/-/quality/smart/-/format/auto/" alt="">
+    </picture>
+</section>
 
 
 <section class='page-section stuff'>
 <inner-column>
+  
   
 
   <section class='branding'>
@@ -41,23 +46,21 @@
 
   <section class='record'>
     <div class='content'>
-      <h2 class='section-heading'>Our Feeling of Natural High: Out&nbsp;Now</h2>
-
+      <h2 class='section-heading'>They Move And They Shine: Out&nbsp;Now</h2>
       <a href='/releases' target='releases'>
         <picture class='image-w record-cover'>
           <img src='<?=$largeCover?>'>
         </picture>
       </a>
-
       <ul class='links-to-buy'>
-        <li>
+        <!-- <li>
           <a href='https://www.castlefacerecords.com/products/l-a-takedown-our-feeling-of-natural-high' target='lp'>
             <span>LP/CD</span>
           </a>
-        </li>
+        </li> -->
         <li>
-          <a href='https://latakedown.bandcamp.com/album/our-feeling-of-natural-high' target='band-camp'>
-            <span>Digital</span>
+          <a href='https://latakedown.bandcamp.com/' target='band-camp'>
+            <span>bandcamp</span>
           </a>
         </li>
         <li>

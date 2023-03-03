@@ -1,14 +1,38 @@
 
 body.page-id-20250
+  .logo
+    svg
+      #la, #takedown
+        fill: black;
+  section.page-section.stuff
+    inner-column
+      section
+        div, button
+          color: black;
   //
+  .new-album-cover {
+    display: none;
+  }
+    
   @media (min-width: 900px)
     //
-    background-color: black
-    background-image:url("images/natural/la-tree-background.jpg");
-    background-repeat: no-repeat
-    background-size: cover
-    background-position: center bottom
+    // background-color: black
+    // background-image:url("https://ucarecdn.com/52c4a846-8d49-4f2d-a820-5ba73ce6f1b1/-/preview/938x432/-/quality/smart/-/format/auto/");
+    // background-repeat: no-repeat
+    // background-size: cover
+    // background-position: center bottom
     
+
+    .new-album-cover {
+      display: block;
+      min-height: 80vh;
+      min-width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 300px;
+      flex-direction: column;
+    }
 
     .page-section.stuff
       transition-delay: 5s
